@@ -13,19 +13,19 @@
 
     <section class="last-impact-section">
         <div class="blur-impact">
-            <img src="ultrasound.png" alt="" width="33%">
+            <img src="ultrasound.png" alt="">
         </div>
         <div class="blur-impact">
-            <img src="blurImage1.png" alt="" width="33%">
+            <img src="blurImage1.png" alt="">
         </div>
         <div class="blur-impact">
-            <video autoplay muted loop playsinline class="blur-video" width="33%">
+            <video autoplay muted loop playsinline class="blur-video">
                 <source src="water.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
         </div>
-
     </section>
+
 </template>
 
 <script>

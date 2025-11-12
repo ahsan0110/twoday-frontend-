@@ -1,12 +1,12 @@
 <template>
     <section class="hero-section">
-        <!-- Background video -->
+       
         <video autoplay muted loop playsinline class="hero-video">
             <source src="Hero-Video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
         </video>
 
-        <!-- Overlay content -->
+        
         <div class="hero-content">
             <span class="video-text-small">WHAT WE DO</span>
             <h1 class="video-text-large">
