@@ -108,7 +108,7 @@ body {
   line-height: 120px;
 }
 .lev-section {
-  padding: 0px 32px 128px 32px;
+  padding: 0px 32px 62px 32px;
   text-align: left;
 }
 .leverage-heading {
@@ -117,11 +117,11 @@ body {
   padding-bottom: 70px;
   font-weight: 400;
 }
-.lev-section h2{
+.lev-section h2 {
   font-size: 1.8rem;
   font-weight: 100;
   padding-bottom: 20px;
-} 
+}
 .lev-component {
   display: flex;
   gap: 32px;
@@ -137,7 +137,7 @@ body {
   border-radius: var(--border-radius, 0.5rem);
   background-color: rgb(236, 226, 218);
 }
-.card span {
+.small-info {
   font-size: 0.8rem;
   font-weight: 400;
   width: fit-content;
@@ -178,4 +178,28 @@ body {
   background-color: orange;
   color: #000000;
   transition: var(--transition-base);
+}
+.last-impact {
+  display: flex;
+  padding: 62px 32px 62px 32px;
+  gap: 32px;
+}
+.last-impact-left {
+  width: 50%;
+}
+.last-impact-left p{
+  font-size: 56px;
+}
+.last-impact-right p{
+  font-size: 22px;
+}
+.last-impact-right {
+  width: 50%;
+}
+.last-impact-section{
+  display: flex;
+  padding: 0px 32px 0px 32px;
+}
+.blur-impact img,video{
+  filter: blur(0.2rem);
 }
