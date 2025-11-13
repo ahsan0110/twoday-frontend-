@@ -4,10 +4,12 @@
   --transition-base: all 0.2s ease-in-out;
   --color-black: #000000;
   --blur: blur(1rem);
+  --bg-color-purple:#ece2da;
 }
 * {
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 body {
   font-family: "Inter", sans-serif;
@@ -132,7 +134,7 @@ body {
   text-align: left;
   padding: 128px 32px;
 }
-.hero-content a {
+.staff-link {
   display: flex;
   width: fit-content;
   gap: 10px;
@@ -145,7 +147,7 @@ body {
   transition: var(--transition-base);
   background-color: #ffbf00;
 }
-.hero-content a:hover {
+.staff-link:hover {
   background-color: black;
   color: #ffffff;
   transition: var(--transition-base);
@@ -263,4 +265,75 @@ body {
 .last-impact-section {
   display: flex;
   padding: 0px 32px 0px 32px;
+}
+.right-side-div{
+  display: flex;
+  flex-direction: column;
+}
+.dream-job-a{
+  text-decoration: none;
+  color: #000;
+  border: 1px solid black;
+  border-radius: var(--border-radius);
+  padding: 1rem 2rem;
+  transition: var(--transition-base);
+  width: max-content;
+  margin-top: auto;
+}
+
+.dream-job-a:hover{
+  color: #fff;
+  background-color: #000;
+}
+
+.frank-div{
+  margin: 2rem;
+  padding: 2rem;
+  display: flex;
+  justify-content:space-between;
+  border-radius: var(--border-radius);
+  background-color: var(--bg-color-purple) ;
+}
+.frank-info{
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+}
+.vertical-line{
+
+  width: 1px;
+  background-color: #000;
+}
+.frank-shakal{
+  display: flex;
+  flex-direction: column;  
+}
+.small-text{
+  border: 1px solid black;
+  width: fit-content;
+  padding: 0.2rem 0.6rem;
+  text-transform: uppercase;
+  border-radius: 20px;
+  font-size: small;
+}
+.arrow-links{
+  display: flex;
+  margin-top: 30px;
+  gap: 10px;
+}
+.black-link{
+  background-color: #000;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition-base);
+}
+.black-link:hover{
+  background-color: orange;
+  color: #000;
+}
+.uncle{
+  width: 40rem;
+  border-radius: var(--border-radius);
+  margin-top: auto;
 }

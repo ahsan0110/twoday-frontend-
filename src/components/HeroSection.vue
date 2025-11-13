@@ -16,7 +16,7 @@
                 <br>
                 Lasting impact.
             </h1>
-            <a href="">Talk to an expert <img src="right-up.png" width="20px"> </a>
+            <a class="staff-link" href="">Talk to an expert <img src="right-up.png" width="20px"> </a>
         </div>
     </section>
 </template>
