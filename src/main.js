@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import Style from '/src/style.css'
-import Responsive from '/src/responsive.css'    
+import '/src/style.css'
+import '/src/responsive.css' 
 
-createApp(App).mount('#app').use(Style).use(Responsive);
+const app = createApp(App);
+
+app.mount('#app');
