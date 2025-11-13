@@ -60,4 +60,26 @@
     font-size: 1.1rem;
     text-align: left;
   }
+  .dream-job-a {
+    margin-top: 50px;
+  }
+  .right-side-div {
+  }
+  .frank-div {
+    margin: 1rem;
+    padding: 1rem;
+    flex-direction: column;
+  }
+  .frank-shakal{
+    margin-top: 30px;
+  }
+  
+  .frank-shakal img{
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  .black-link{
+    display: none;
+  }
 }
