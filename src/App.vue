@@ -5,6 +5,8 @@
   <LastingImpact />
   <FrankComponent />
   <LatestNews />
+  <FormComponent />
+  <FooterCompponent />
 </template>
 
 <script>
@@ -15,6 +17,9 @@ import LeveraGing from './components/LeveraGing.vue';
 import LastingImpact from './components/LastingImpact.vue';
 import FrankComponent from './components/FrankComponent.vue';
 import LatestNews from './components/LatestNews.vue';
+import FormComponent from './components/FormComponent.vue'
+import FooterCompponent from './components/FooterComponent.vue'
+
 export default {
   name: 'App',
   components: {
@@ -24,6 +29,8 @@ export default {
     LastingImpact,
     FrankComponent,
     LatestNews,
+    FormComponent,
+    FooterCompponent,
   }
 }
 </script>

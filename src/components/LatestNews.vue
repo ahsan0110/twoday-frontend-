@@ -18,10 +18,10 @@ export default {
                 <div class="card-text">
                     <h3>Only the top 1% selected: Twoday joins the Microsoft Inner Circle for AI Business Solutions</h3>
                     <p>Just three years after its founding, Twoday
-has been named to the Microsoft FY26 Inner
-Circle for A1 Business Solutions — placing it
-among the top 1% of Microsoft's global
-partners.</p>
+                        has been named to the Microsoft FY26 Inner
+                        Circle for A1 Business Solutions — placing it
+                        among the top 1% of Microsoft's global
+                        partners.</p>
                 </div>
             </article>
 
@@ -49,10 +49,10 @@ partners.</p>
                 <div class="card-text">
                     <h3>Kristin Nyberg from Twoday awarded the Microsoft Power Women Awards 2025</h3>
                     <p>Kristin Nyberg, Country Managing Director of
-Twoday Norway, has won the Microsoft
-Power Women Awards 2025, recognizing 20
-European tech leaders for excellence in
-leadership, innovation, and diversity.</p>
+                        Twoday Norway, has won the Microsoft
+                        Power Women Awards 2025, recognizing 20
+                        European tech leaders for excellence in
+                        leadership, innovation, and diversity.</p>
                 </div>
             </article>
 
@@ -64,9 +64,9 @@ leadership, innovation, and diversity.</p>
                 <div class="card-text">
                     <h3>Twoday announced as Anchor Partner for Microsoft’s Danish datacenter</h3>
                     <p>Twoday has been named one of just seven
-Anchor Partners and will play a key role as
-Microsoft launches its first datacenter in
-Denmark.</p>
+                        Anchor Partners and will play a key role as
+                        Microsoft launches its first datacenter in
+                        Denmark.</p>
                 </div>
             </article>
         </div>
