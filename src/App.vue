@@ -3,7 +3,8 @@
   <HeroSection />
   <LeveraGing />
   <LastingImpact />
-  <FrankComponent/>
+  <FrankComponent />
+  <LatestNews />
 </template>
 
 <script>
@@ -13,6 +14,7 @@ import HeroSection from './components/HeroSection.vue';
 import LeveraGing from './components/LeveraGing.vue';
 import LastingImpact from './components/LastingImpact.vue';
 import FrankComponent from './components/FrankComponent.vue';
+import LatestNews from './components/LatestNews.vue';
 export default {
   name: 'App',
   components: {
@@ -21,6 +23,7 @@ export default {
     LeveraGing,
     LastingImpact,
     FrankComponent,
+    LatestNews,
   }
 }
 </script>
