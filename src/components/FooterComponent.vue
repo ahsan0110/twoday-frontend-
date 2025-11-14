@@ -20,9 +20,7 @@ export default {
                 <a class="footer-small-links" href="">Engineering</a>
                 <a class="footer-small-links" href="">Applications</a>
                 <a class="footer-small-links" href="">Products</a>
-                <a class="heading-link insights" href="">Insights</a>
-                <a class="footer-small-links" href="">Blogs</a>
-                <a class="footer-small-links" href="">Guides & whitepapers</a>
+            
             </div>
             <div class="footer-column-3">
                 <a class="heading-link" href="">Clients</a>
@@ -31,11 +29,6 @@ export default {
                 <a class="footer-small-links" href="">Health & life sciences</a>
                 <a class="footer-small-links" href="">Government</a>
                 <a class="footer-small-links" href="">All stories</a>
-                <a class="heading-link about" href="">About</a>
-                <a class="footer-small-links" href="">Our story</a>
-                <a class="footer-small-links" href="">Leadership team</a>
-                <a class="footer-small-links" href="">Board</a>
-                <a class="footer-small-links" href="">Press</a>
             </div>
             <div class="footer-column-4">
                 <a class="heading-link" href="">Career</a>
@@ -45,7 +38,11 @@ export default {
                 <a class="footer-small-links" href="">Our locations</a>
             </div>
             <div class="footer-column-5">
-                <a class="heading-link" href="">Partners</a>
+                <a class="heading-link" href="">About</a>
+                <a class="footer-small-links" href="">Our story</a>
+                <a class="footer-small-links" href="">Leadership team</a>
+                <a class="footer-small-links" href="">Board</a>
+                <a class="footer-small-links" href="">Press</a>
             </div>
         </div>
         <hr id="footer-line">
