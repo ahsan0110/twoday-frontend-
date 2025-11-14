@@ -149,7 +149,17 @@
   .footer-bottom-part p{
     margin-right: auto;
   }
-  
+  .last-impact-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 2rem;
+
+}
+.blur-impact img,
+.blur-impact video{
+  max-width: 92vw;
+}
 }
 
 
