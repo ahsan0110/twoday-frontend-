@@ -132,6 +132,27 @@
   .form-row{
     flex-direction: column;
   }
+  .footer-grid{
+    display: flex;
+    flex-direction: column;
+  }
+  .heading-link{
+    margin-bottom: 30px;
+  }
+  .footer-link{
+    margin-bottom: 30px;
+  }
+  #footer-line{
+    margin-bottom: 50px;
+  }
+  .footer-bottom-part{
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 5px;
+  }
+  .footer-bottom-part p{
+    margin-right: auto;
+  }
 
 }
 
@@ -167,6 +188,7 @@
     display: none; /* hide desktop contact */
   }
 }
+
 
 
 
