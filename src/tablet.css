@@ -107,4 +107,30 @@
     z-index: 100;
     margin-top: 10px;
   }
+  .form-section{
+    flex-direction: column;
+    gap: 30px;
+    padding-right: 16px;
+  }
+  .form-section-left{
+   width: 84vw;
+  }
+  .form-section-left h1{
+    font-size: 4rem;
+  }
+  .form-section-right{
+    width: 94%;
+    
+  }
+  form{
+  margin-right: 10px;
+  }
+  
+}
+
+
+
+
+html, body {
+  overflow-x: hidden;
 }

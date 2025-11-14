@@ -15,22 +15,22 @@ export default {
             <form action="">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="firstName">First name*</label>
+                        <label for="firstName" required>First name*</label>
                         <input type="text" id="firstName" placeholder="First name" required />
                     </div>
 
                     <div class="form-group">
-                        <label for="lastName">Last name*</label>
+                        <label for="lastName" required>Last name*</label>
                         <input type="text" id="lastName" placeholder="Last name" required />
                     </div>
                 </div>
-                <label style="display: block;" for="email">Email*</label>
+                <label style="display: block;" for="email" required>Email*</label>
                 <input type="email">
-                <label style="display: block;" for="text">Company Name*</label>
+                <label style="display: block;" for="text" required>Company Name*</label>
                 <input type="email">
-                <label style="display: block;" for="text">Job Title*</label>
+                <label style="display: block;" for="text" required>Job Title*</label>
                 <input type="email">
-                <label style="display: block;" for="country">Country*</label>
+                <label style="display: block;" for="country" required>Country*</label>
                 <select id="country" name="country" required>
                     <option value="">Select your country</option>
                     <option value="PK">Pakistan</option>

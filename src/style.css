@@ -366,7 +366,6 @@ body {
   width: 100%;
   aspect-ratio: 3 / 2;
   transition: var(--transition-base);
-
   border-radius: 12px;
 }
 
