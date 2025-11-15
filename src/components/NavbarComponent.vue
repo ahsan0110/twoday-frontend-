@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar" :class="{ 'menu-open': isOpen }">
-    <img class="logo" src="twoday.svg" alt="Logo" />
+    <img v-on:click="landingpage" class="logo" src="twoday.svg" alt="Logo" />
 
     <!-- Navigation Links -->
     <div class="nav-links" :class="{ open: isOpen }">
@@ -27,12 +27,19 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
 
-const isOpen = ref(false)
+const isOpen = ref(false) 
 const isMobile = ref(window.innerWidth < 1200)
 
 const toggleMenu = () => {
   isOpen.value = !isOpen.value
+}
+
+const router = useRouter()
+
+const landingpage = () => {
+  router.push({ name: "LandingPage" })
 }
 
 const updateScreenSize = () => {
@@ -48,3 +55,4 @@ onUnmounted(() => {
   window.removeEventListener('resize', updateScreenSize)
 })
 </script>
+

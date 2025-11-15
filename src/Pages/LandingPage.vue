@@ -10,7 +10,7 @@ import FooterComponent from '@/components/FooterComponent.vue'
 
 
 export default {
-    name: 'ServicePage',
+    name: 'LandingPage',
     components: {
         NavbarComponent,
         HeroSection,
@@ -25,7 +25,6 @@ export default {
 </script>
 
 <template>
-    <h1>Landing Page</h1>
     <NavbarComponent />
     <HeroSection />
     <LeveraGing />
