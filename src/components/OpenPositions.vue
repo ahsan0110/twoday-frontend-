@@ -4,19 +4,22 @@
             <h1>Open Positions</h1>
         </div>
         <div v-for="(detail, index) in details" :key="index" class="position-links">
-            <hr>
-            <div class="single-position-link">
-                <div class="left-div">
-                    <h1 class="detail-name">{{ detail.name }}</h1>
-                    <p class="detail-country">{{ detail.country }}</p>
+            <router-link class="position-router-links" :to="{name:'ExtraInfo'}">
+                <hr>
+
+                <div class="single-position-link">
+                    <div class="left-div">
+                        <h1 class="detail-name">{{ detail.name }}</h1>
+                        <p class="detail-country">{{ detail.country }}</p>
+                    </div>
+                    <div class="mid-div">
+                        <h1 class="detail-description">{{ detail.description }}</h1>
+                    </div>
+                    <div class="right-div">
+                        <p class="detail-major">{{ detail.major }}</p>
+                    </div>
                 </div>
-                <div class="mid-div">
-                    <h1 class="detail-description">{{ detail.description }}</h1>
-                </div>
-                <div class="right-div">
-                    <p class="detail-major">{{ detail.major }}</p>
-                </div>
-            </div>
+            </router-link>
         </div>
     </div>
 </template>

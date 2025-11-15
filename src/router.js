@@ -2,6 +2,7 @@ import ServicePage from './Pages/ServicePage.vue'
 import LandingPage from './Pages/LandingPage.vue'
 import AboutPage from './Pages/AboutPage.vue'
 import CareerPage from './Pages/CareerPage.vue'
+import ExtraInfo from './Pages/ExtraInfo.vue'
 import {createRouter,createWebHistory} from 'vue-router';
 
 const routes = [
@@ -24,6 +25,11 @@ const routes = [
         name:"CareerPage",
         component:CareerPage,
         path:"/career"
+    },
+    {
+        name:"ExtraInfo",
+        component:ExtraInfo,
+        path:"/extra"
     },
 ]
 

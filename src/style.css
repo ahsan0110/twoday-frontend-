@@ -708,6 +708,15 @@ footer {
 .open-position-title{
   margin-bottom: 60px;
 }
+.position-links hr{
+  height: 1px;
+  border: none;
+  background-color: #a5a5a5;
+}
+.position-router-links{
+  color: #000000;
+}
+
 .single-position-link{
   display: grid;
   grid-template-columns: 1fr 1.5fr 1fr;
