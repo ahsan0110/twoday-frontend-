@@ -5,8 +5,8 @@ import LeveraGing from '@/components/LeveraGing.vue';
 import LastingImpact from '@/components/LastingImpact.vue'
 import FrankComponent from '@/components/FrankComponent.vue'
 // import LatestNews from '@/components/LatestNews.vue'
-// import FormComponent from '@/components/FormComponent.vue'
-// import FooterComponent from '@/components/FooterComponent.vue'
+import FormComponent from '@/components/FormComponent.vue'
+import FooterComponent from '@/components/FooterComponent.vue'
 
 export default {
     data() {
@@ -44,8 +44,8 @@ export default {
         LastingImpact,
         FrankComponent,
         // LatestNews,
-        // FormComponent,
-        // FooterComponent,
+        FormComponent,
+        FooterComponent,
 
     }
 }
@@ -56,6 +56,7 @@ export default {
 
     <HeroSection smallText="OUR SERVICES" largeText="Anyone can talk about the future.<br>We engineer it."
         ctaText="Get in Touch" videoSrc="" heroClass="service-hero" />
+
     <LeveraGing class="service-lev" heading="" subHeading="We apply AI to create impactful solutions in:" />
 
     <FrankComponent
@@ -66,11 +67,19 @@ export default {
 
     <LastingImpact :items="impactData" />
 
+    <FormComponent formTextClass="mainText-services" formParaClass="form-para-services" mainText="Unlock the power of data. Turn decisions into growth."
+    formSectionClass="form-section-services"
+        mainPara="Twoday is the defining force in applied AI and advanced engineering. With 3,000 experts in data, software, and cloud engineering, we cut through complexity, remove uncertainty, and prove the value of technology.
+
+        We strengthen private and public organizations across industries like energy and utilities, industrials and manufacturing, health and life sciences, and government and more.
+
+        From offices in Sweden, Denmark, Norway, Finland, and Lithuania, we combine local presence with scale that matters to deliver clarity and results that last." />
+    <FooterComponent />
+
 
     <!-- 
         <LatestNews />
-    <FormComponent />
-    <FooterComponent /> -->
+    -->
 
 
 </template>

@@ -1,14 +1,23 @@
 <script>
 export default {
-    name: "FormComponent"
+    name: "FormComponent",
+    props: {
+        formTextClass: { type: String, default: "mainText" },
+        formParaClass: { type: String, default: "form-para" },
+        formSectionClass: { type: String, default: "form-section" },
+
+        mainText: { type: String, default: "Let's talk about <br>the future" },
+        mainPara: { type: String, default: "Contact us through the form and let's talk about what we can <br>accomplish together" },
+
+    }
 }
 </script>
 
 <template>
-    <div class="form-section">
-        <div class="form-section-left">
-            <h1 class="mainText">Let's talk about <br>the future</h1>
-            <p>Contact us through the form and let's talk about what we can <br>accomplish together.</p>
+    <div :class="formSectionClass">
+        <div :class="['form-section-left', formTextClass]">
+            <h1 class="mainText" v-html="mainText"></h1>
+            <p :class="formParaClass" v-html="mainPara"></p>
             <a class="staff-link" href="">Get in touch</a>
         </div>
         <div class="form-section-right">
@@ -42,8 +51,9 @@ export default {
                 </select>
                 <label style="display: block;" for="text">Message*</label>
                 <input id="form-message" type="text">
-                <p>When you provide your personal info above, Twoday will process it in according with our privacy policy.</p>
-                 <a class="staff-link" href="">Submit </a>
+                <p>When you provide your personal info above, Twoday will process it in according with our privacy
+                    policy.</p>
+                <a class="staff-link" href="">Submit </a>
             </form>
         </div>
     </div>
