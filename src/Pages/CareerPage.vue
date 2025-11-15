@@ -5,6 +5,7 @@ import LeveraGing from '@/components/LeveraGing.vue';
 import FrankComponent from '@/components/FrankComponent.vue'
 import FormComponent from '@/components/FormComponent.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
+import OpenPositions from '@/components/OpenPositions.vue';
 
 export default {
     data() {
@@ -47,6 +48,7 @@ export default {
         HeroSection,
         LeveraGing,
         FrankComponent,
+        OpenPositions,
         // LatestNews,
         FormComponent,
         FooterComponent,
@@ -64,6 +66,7 @@ export default {
         heading="" 
         subHeading="We build a workplace where people grow and    belong:"
         :cards="careerCard" />
+    <OpenPositions/>
 
     <FrankComponent
         expertTag="Meet Our People" expertNameRole="Meet Frank<br>AI & Engineering " expertCTA="Read More"
