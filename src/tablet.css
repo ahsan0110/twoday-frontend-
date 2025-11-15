@@ -1,5 +1,5 @@
 /*  Tablet  */
-@media (min-width: 769px) and (max-width: 1199px) {
+@media (max-width: 900px) {
   .hero-section {
     height: 60vh;
   }
@@ -11,17 +11,25 @@
   }
 
   .hero-content {
-    padding-top: 70%;
+    padding-top: 200px;
   }
 
   .video-text-large {
-    font-size: 3rem;
-    line-height: 50px;
+    font-size: 5rem;
+    line-height: 120px;
+    margin-top: 90px;
   }
 
   .video-text-small {
-    font-size: 0.8rem;
+    font-size: 1.5rem;
     letter-spacing: 2px;
+
+  }
+  .hero-content a{
+    margin-top: 100px;
+  }
+  .staff-link{
+    font-size: 1.7rem;
   }
   .lev-section {
     padding-top: 280px;
@@ -155,11 +163,14 @@
   gap: 15px;
   padding: 2rem;
 
-}
-.blur-impact img,
-.blur-impact video{
-  max-width: 92vw;
-}
+  }
+  .blur-impact{
+    height: 90vh;
+  }
+  .last-impact-section{
+    width: 92%;
+  }
+
 }
 
 

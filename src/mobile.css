@@ -1,5 +1,5 @@
 /* Mobile */
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .hero-section {
     height: 60vh;
   }
@@ -11,18 +11,26 @@
   }
 
   .hero-content {
-    padding-top: 200px;
+    padding-top: 100px;
     padding-bottom: 100px;
   }
 
   .video-text-large {
     font-size: 3rem;
-    line-height: 50px;
+    line-height: 60px;
+    margin-top: 70px;
+    margin-bottom: 0;
   }
 
   .video-text-small {
     font-size: 0.8rem;
     letter-spacing: 2px;
+  }
+    .hero-content a{
+    margin-top: 90px;
+  }
+  .staff-link{
+    font-size: 1rem;
   }
   .lev-section {
     padding-top: 100px;
@@ -38,11 +46,12 @@
   }
   .lev-component {
     flex-direction: column;
-    gap: 20px;
+    display: block;
   }
   .card {
-    width: 95%;
     padding-right: 4px;
+    margin-bottom: 20px;
+
   }
 
   .last-impact {
