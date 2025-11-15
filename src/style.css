@@ -46,7 +46,7 @@ body {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-.nav-links a:hover .nav-span{
+.nav-links a:hover .nav-span {
   opacity: 1;
 }
 .nav-links a:hover {
@@ -151,13 +151,13 @@ body {
   text-align: left;
   padding: 70px 32px;
 }
-.service-hero{
-  padding: 70px 32px;
+.service-hero {
+  padding: 70px 32px 50px 32px;
 }
-.service-hero span{
+.service-hero span {
   color: #fff;
 }
-.service-hero h1{
+.service-hero h1 {
   color: #000000;
   font-size: 5.5rem;
 }
@@ -199,6 +199,9 @@ body {
 .lev-section {
   padding: 0px 32px 62px 32px;
   text-align: left;
+}
+.service-lev h1 {
+  display: none;
 }
 .leverage-heading {
   font-size: 3rem;
@@ -453,8 +456,8 @@ body {
 .card-image {
   position: relative;
   width: 100%;
-  height: 300px; 
-  overflow: hidden; 
+  height: 300px;
+  overflow: hidden;
   border-radius: 12px;
 }
 
@@ -657,8 +660,6 @@ footer {
   margin-left: auto;
   color: #848484;
 }
-
-
 
 @media (max-width: 600px) {
   /* Mobile */
