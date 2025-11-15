@@ -28,28 +28,28 @@ export default {
                     title: "Data",
                     description: "We specialize in harnessing the power of data and artificial intelligence (AI) to drive businesses forward. Our data and AI services are designed to empower organizations with solutions that enhance decision-making and fuel business outcomes.",
                     ctaText: "Become data driven",
-                    ctaLink: "#",
+                    ctaLink: "/extra",
                 },
                 {
                     number: "02",
                     title: "Cloud",
                     description: "Our Cloud Platforms and Security experts help enterprises maximize return on their investments in Microsoft Systems Management and Cloud Platform Solutions.",
                     ctaText: "Explore cloud solutions",
-                    ctaLink: "#",
+                    ctaLink: "/extra",
                 },
                 {
                     number: "03",
                     title: "Engineering",
                     description: "At Twoday we drive digital transformation through custom software development, leveraging cloud services and application expertise. We utilize the latest technologies, to develop high-quality and scalable software solutions following industry best practices.",
                     ctaText: "Start building",
-                    ctaLink: "#",
+                    ctaLink: "/extra",
                 },
                 {
                     number: "04",
                     title: "Applications",
                     description: "Looking to elevate your business operations? Partner with us to implement business applications that not only reduce costs but also increase efficiency. With our solutions for sales, marketing, customer service, and more, we're dedicated to your success.",
                     ctaText: "Explore Applications",
-                    ctaLink: "#",
+                    ctaLink: "/extra",
                 }
             ]
         }

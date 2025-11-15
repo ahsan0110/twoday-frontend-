@@ -12,21 +12,21 @@ export default {
                     src: "ultrasound.png",
                     text: "Together with Päijät-Häme Welfare Region, we’re using AI to make everyday life simpler for both residents and professionals — easing workloads, improving access to care, and shaping a smarter, more human welfare service.",
                     cta: "Read More",
-                    link: "#"
+                    link: "/extra"
                 },
                 {
                     type: "image",
                     src: "blurImage1.png",
                     text: "ISS saves hundreds of hours of working time by modernizing its data platform and customer reporting.",
                     cta: "Read More",
-                    link: "#"
+                    link: "/extra"
                 },
                 {
                     type: "video",
                     src: "water.mp4",
                     text: "A future-proof platform that brings systems together, simplifies daily work, and helps our client move faster. Because real progress starts with a solid digital foundation.",
                     cta: "Read More",
-                    link: "#"
+                    link: "/extra"
                 }
             ]
         }
@@ -53,7 +53,7 @@ export default {
 
             <div class="impact-text">
                 <p>{{ item.text }}</p>
-                <a class="staff-link read-more" :href="item.link || '#'">
+                <a class="staff-link read-more" :href="item.link || '/extra'">
                     {{ item.cta || 'Read More' }}
                 </a>
             </div>

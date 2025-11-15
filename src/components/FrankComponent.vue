@@ -21,8 +21,8 @@
                 <a :href="expertLink" class="staff-link">{{ expertCTA }}</a>
 
                 <div class="arrow-links">
-                    <a class="black-link" href="prevLink">◀</a>
-                    <a class="black-link" href="nextLink">▶</a>
+                    <a class="black-link" href="/extra">◀</a>
+                    <a class="black-link" href="/extra">▶</a>
                 </div>
             </div>
 
