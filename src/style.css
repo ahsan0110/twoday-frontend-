@@ -405,6 +405,10 @@ body {
   display: flex;
   flex-direction: column;
 }
+.text-large{
+  font-size: 5rem;
+  line-height: 85px;
+}
 .text-large-service{
   font-size: 5rem;
   line-height: 85px;
@@ -481,20 +485,6 @@ body {
 .card-image:hover img {
   transform: scale(1.1); /* ZOOM IN */
 }
-
-/* Blur/scale others */
-/* .news-div:hover .news-card:not(:hover) .card-image img {
-  filter: blur(2px);
-  transform: scale(0.98);
-  opacity: 0.7;
-} */
-
-/* Zoom hovered card's image */
-/* .news-card:hover .card-image img {
-  filter: blur(0);
-  transform: scale(1.05);
-  opacity: 1;
-} */
 
 .tag {
   position: absolute;
