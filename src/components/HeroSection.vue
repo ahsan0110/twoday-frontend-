@@ -25,7 +25,7 @@ export default {
         largeText: { type: String, default: 'Applied AI.<br>Advanced engineering.<br>Lasting impact.' },
         videoSrc: { type: String, default: "Hero-Video.mp4" },
         ctaText: { type: String, default: "Talk to an expert" },
-        ctaLink: { type: String, default: "#" },
+        ctaLink: { type: String, default: "#expert-section" },
     }
 };
 </script>

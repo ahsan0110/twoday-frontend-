@@ -1,5 +1,5 @@
 <template>
-    <div class="frank-section">
+    <div id="expert-section" class="frank-section">
 
         <!-- Career / Impact Section -->
         <div class="last-impact">
