@@ -9,7 +9,7 @@
 
         <div :class="heroClass">
             <span class="video-text-small">{{ smallText }}</span>
-            <h1 :style="{ color: bgcolor }" class="video-text-large" v-html="largeText"></h1>
+            <h1 class="video-text-large" v-html="largeText"></h1>
             <a v-if="ctaText" class="staff-link" :href="ctaLink"> {{ ctaText }} </a>
         </div>
     </section>
@@ -26,7 +26,6 @@ export default {
         videoSrc: { type: String, default: "Hero-Video.mp4" },
         ctaText: { type: String, default: "Talk to an expert" },
         ctaLink: { type: String, default: "#" },
-        bgcolor:{ type: String, default: "#ffffff" }
     }
 };
 </script>

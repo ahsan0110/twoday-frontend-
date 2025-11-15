@@ -151,6 +151,16 @@ body {
   text-align: left;
   padding: 70px 32px;
 }
+.service-hero{
+  padding: 70px 32px;
+}
+.service-hero span{
+  color: #fff;
+}
+.service-hero h1{
+  color: #000000;
+  font-size: 5.5rem;
+}
 .staff-link {
   display: flex;
   width: fit-content;

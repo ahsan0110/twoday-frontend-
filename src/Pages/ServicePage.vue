@@ -17,8 +17,8 @@ export default {
     smallText="OUR SERVICES" 
     largeText="Anyone can talk about the future.<br>We engineer it." 
     ctaText="Get in Touch"
-    videoSrc="Null"
-    bgcolor="#000"
+    videoSrc=""
+    heroClass="service-hero"
     />
 
 
