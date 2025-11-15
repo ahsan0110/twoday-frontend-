@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template>
-    <div :class="formSectionClass">
+    <div id="form-section-id" :class="formSectionClass">
         <div :class="['form-section-left', formTextClass]">
             <h1 class="mainText" v-html="mainText"></h1>
             <p :class="formParaClass" v-html="mainPara"></p>

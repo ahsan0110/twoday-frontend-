@@ -55,7 +55,7 @@ export default {
     <NavbarComponent />
 
     <HeroSection smallText="OUR SERVICES" largeText="Anyone can talk about the future.<br>We engineer it."
-        ctaText="Get in Touch" videoSrc="" heroClass="service-hero" />
+        ctaText="Get in Touch" ctaLink="#form-section-id" videoSrc="" heroClass="service-hero" />
 
     <LeveraGing class="service-lev" heading="" subHeading="We apply AI to create impactful solutions in:" />
 
