@@ -1,15 +1,25 @@
 <script>
-    import NavbarComponent from '@/components/NavbarComponent.vue'; 
+import NavbarComponent from '@/components/NavbarComponent.vue';
+import HeroSection from '@/components/HeroSection.vue';
 
-    export default{
-        name:'ServicePage',
-        components:{
-            NavbarComponent,
-        }
+export default {
+    name: 'ServicePage',
+    components: {
+        NavbarComponent,
+        HeroSection,
     }
+}
 </script>
 
 <template>
-    <h1>Services</h1>
-    <NavbarComponent/>
+    <NavbarComponent />
+    <HeroSection 
+    smallText="OUR SERVICES" 
+    largeText="Anyone can talk about the future.<br>We engineer it." 
+    ctaText="Get in Touch"
+    videoSrc="Null"
+    bgcolor="#000"
+    />
+
+
 </template>
