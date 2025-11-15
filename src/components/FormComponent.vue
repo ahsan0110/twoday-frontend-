@@ -18,7 +18,7 @@ export default {
         <div :class="['form-section-left', formTextClass]">
             <h1 class="mainText" v-html="mainText"></h1>
             <p :class="formParaClass" v-html="mainPara"></p>
-            <a class="staff-link" href="">Get in touch</a>
+            <a class="staff-link contact-form-a" href="/extra">Get in touch</a>
         </div>
         <div class="form-section-right">
             <form action="">
@@ -53,7 +53,7 @@ export default {
                 <input id="form-message" type="text">
                 <p>When you provide your personal info above, Twoday will process it in according with our privacy
                     policy.</p>
-                <a class="staff-link" href="">Submit </a>
+                <a class="staff-link" href="/extra">Submit </a>
             </form>
         </div>
     </div>
