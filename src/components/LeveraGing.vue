@@ -1,6 +1,6 @@
 <template>
     <div :class="levClass">
-        <h1 class="leverage-heading">{{ heading }}</h1>
+        <h1 :class="['leverage-heading', levHeadingClass]">{{ heading }}</h1>
         <h2>{{ subHeading }}</h2>
         <div class="lev-component">
             <div class="card" v-for="(item, index) in cards" :key="index">
@@ -18,6 +18,7 @@ export default {
     name: "LeveraGing",
     props: {
         levClass:{ type:String,default:"lev-section"},
+        levHeadingClass:{ type:String,default:"lev-heading"},
         heading: { type: String, default: "We help organizations apply and scale AI - grounded in strong data, cloud, and engineering" },
         subHeading: { type: String, default: "Learn how we create impactful solutions leveraging:" },
         cards: {

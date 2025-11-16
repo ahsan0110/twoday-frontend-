@@ -872,6 +872,9 @@ footer {
 
 @media (max-width: 1024px) {
   /* Tablet */
+
+  /*  ===== HERO SECTION ====  */
+
   .hero-content {
     padding: 64px 32px;
   }
@@ -881,6 +884,11 @@ footer {
   .about-hero-content {
     padding: 200px 32px;
   }
+
+  .service-hero{
+    padding-bottom: 64px;
+  }
+
   .about-hero-content .video-text-small,
   .career-hero .video-text-small,
   .service-hero .video-text-small,
@@ -899,6 +907,21 @@ footer {
   .staff-link {
     font-size: 1.5rem;
   }
+  /*  ===== HERO SECTION END ====  */
+  
+  /*  ===== LEVERAGE COMPONENT ====  */
+  .service-lev-heading{
+    display: none;
+  }
+  .lev-component{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+  .card{
+    width: 90%;
+  }
+
+  /*  ===== LEVERAGE COMPONENT END ====  */
 }
 
 @media (max-width: 768px) {
@@ -907,6 +930,8 @@ footer {
 
 @media (max-width: 600px) {
   /* Mobile */
+
+  /*  ===== HERO SECTION ====  */
   .hero-section,
   .service-hero,
   .career-hero,
@@ -919,6 +944,9 @@ footer {
   .career-hero,
   .about-hero-content {
     padding: 64px 32px;
+  }
+  .service-hero{
+    padding-bottom: 16px;
   }
 
   .career-hero {
@@ -936,6 +964,29 @@ footer {
   .staff-link {
     font-size: 1rem;
   }
+  /*  ===== HERO SECTION END ====  */
+  
+  /*  ===== LEVERAGE COMPONENT ====  */
+  .lev-section{
+    margin-top: 30px;
+  }
+  .leverage-heading{
+    font-size: 32px;
+  }
+  .service-lev-heading{
+    display: none;
+  }
+  .lev-section h2{
+    font-size: 24px;
+  }
+  .lev-component{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+  }
+  .card{
+    width: 90%;
+  }
+  /*  ===== LEVERAGE COMPONENT END ====  */
 }
 
 .extra-img body {
