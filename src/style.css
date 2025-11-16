@@ -960,8 +960,21 @@ footer {
   .uncle {
     width: 44rem;
   }
-
   /*  ===== FRANK END ====  */
+
+  /*  ===== LATEST NEWS ====  */
+  .news-section{
+    padding-top: 0;
+  }
+  .news-div{
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(2,1fr);
+  }
+  .news-card{
+    width: auto;
+  }
+  /*  ===== LATEST NEWS END ====  */
 }
 
 @media (max-width: 768px) {
@@ -1079,14 +1092,22 @@ footer {
   .uncle {
     width: 16.5rem;
   }
-  .frank-shakal q{
+  .frank-shakal q {
     margin-bottom: 32px;
   }
-  .arrow-links{
+  .arrow-links {
     display: flex;
     justify-content: space-between;
   }
   /*  ===== FRANK END ====  */
+
+  /*  ===== LATEST NEWS ====  */
+  .news-div{
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(1,1fr);
+  }
+  /*  ===== LATEST NEWS END ====  */
 }
 
 .extra-img body {
