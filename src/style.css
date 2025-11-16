@@ -804,6 +804,33 @@ footer {
   justify-content: center;
 }
 
+.stats-container {
+  margin: 32px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 50px;
+  background: #ffc400;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+.stat h1 {
+  font-size: 125px;
+  font-weight: 100;
+  color: #111;
+}
+.stat hr{
+  margin-bottom: 30px;
+  border: none;
+  height: 1px;
+  background-color: #000;
+}
+.stat .label {
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+
 @media (max-width: 600px) {
   /* Mobile */
 }

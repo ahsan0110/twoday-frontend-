@@ -3,6 +3,7 @@
     import HeroSection from '@/components/HeroSection.vue'; 
     import FormComponent from '@/components/FormComponent.vue';
     import FooterComponent from '@/components/FooterComponent.vue';
+    import CounterNumber from '@/components/CounterNumber.vue';
 
     export default{
         name:'AboutPage',
@@ -11,6 +12,7 @@
             FooterComponent,
             HeroSection,
             FormComponent,
+            CounterNumber,
         }
     }
 </script>
@@ -26,7 +28,7 @@
         ctaText="Get in Touch"
         ctaLink="#form-section-id"
     />
-
+    <CounterNumber/>
     <FormComponent
         mainText="Get to know us"
     />
