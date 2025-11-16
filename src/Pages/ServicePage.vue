@@ -15,7 +15,7 @@ export default {
                 {
                     type: "image",
                     src: "hands.png",
-                    text: "From digital health solutions to research data platforms, we connect innovation with care. We help healthcare providers, pharma, and life science organizations improve patient outcomes and accelerate discovery - securely and responsibly.",
+                    text: "From digital health solutions to research data platforms, we connect innovation with care. We help healthcare providers, pharma, and life science organizations.",
                     cta: "Discover More",
                     link: "#"
                 },
@@ -29,7 +29,7 @@ export default {
                 {
                     type: "image",
                     src: "energy.png",
-                    text: "We enable smarter, more sustainable systems - from energy optimization to reliable grid operations. Our solutions support utilities in balancing demand, improving resilience, and driving the green transition.",
+                    text: "We enable smarter, more sustainable systems - from energy optimization to reliable grid operations.",
                     cta: "Discover More",
                     link: "#"
                 }

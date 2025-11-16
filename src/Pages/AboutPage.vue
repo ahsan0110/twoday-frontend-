@@ -17,7 +17,7 @@ export default {
                 {
                     type: "image",
                     src: "government.png",
-                    text: "Together with Päijät-Häme Welfare Region, we’re using AI to make everyday life simpler for both residents and professionals — easing workloads, improving access to care, and shaping a smarter, more human welfare service.",
+                    text: "Together with Päijät-Häme Welfare Region, we’re using AI to make everyday life simpler.",
                     cta: "Read More",
                     link: "/extra"
                 },

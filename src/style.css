@@ -364,12 +364,12 @@ body {
   gap: 10px;
   padding: 2rem;
   width: 96%;
-  height: 70vh;
   overflow: hidden;
 }
 
 .blur-impact {
   flex: 1;
+  height: 70vh;
   position: relative;
   transition: flex 0.5s ease, transform 0.5s ease;
   overflow: hidden;
@@ -885,7 +885,7 @@ footer {
     padding: 200px 32px;
   }
 
-  .service-hero{
+  .service-hero {
     padding-bottom: 64px;
   }
 
@@ -908,20 +908,32 @@ footer {
     font-size: 1.5rem;
   }
   /*  ===== HERO SECTION END ====  */
-  
+
   /*  ===== LEVERAGE COMPONENT ====  */
-  .service-lev-heading{
+  .service-lev-heading {
     display: none;
   }
-  .lev-component{
+  .lev-component {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
-  .card{
+  .card {
     width: 90%;
   }
-
   /*  ===== LEVERAGE COMPONENT END ====  */
+
+  /*  ===== LASTING IMPACT ====  */
+
+  .last-impact-section {
+    flex-direction: column;
+    gap: 20px;
+    width: 92%;
+  }
+  .blur-impact {
+    max-height: 70vh;
+  }
+
+  /*  ===== LASTING IMPACT END ====  */
 }
 
 @media (max-width: 768px) {
@@ -945,7 +957,7 @@ footer {
   .about-hero-content {
     padding: 64px 32px;
   }
-  .service-hero{
+  .service-hero {
     padding-bottom: 16px;
   }
 
@@ -965,28 +977,53 @@ footer {
     font-size: 1rem;
   }
   /*  ===== HERO SECTION END ====  */
-  
+
   /*  ===== LEVERAGE COMPONENT ====  */
-  .lev-section{
+  .lev-section {
     margin-top: 30px;
   }
-  .leverage-heading{
+  .leverage-heading {
     font-size: 32px;
   }
-  .service-lev-heading{
+  .service-lev-heading {
     display: none;
   }
-  .lev-section h2{
+  .lev-section h2 {
     font-size: 24px;
   }
-  .lev-component{
+  .lev-component {
     display: grid;
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
-  .card{
+  .card {
     width: 90%;
   }
   /*  ===== LEVERAGE COMPONENT END ====  */
+
+  /*  ===== LASTING IMPACT ====  */
+
+  .last-impact {
+    flex-direction: column;
+  }
+  .last-impact-right {
+    width: 100%;
+  }
+  .last-impact-left {
+    width: 100%;
+  }
+  .last-impact-left p {
+    font-size: 48px;
+  }
+  .last-impact-section {
+    max-width: 84%;
+  }
+  .blur-impact {
+    max-height: 50vh;
+  }
+  .impact-text{
+    width: 65%;
+  }
+  /*  ===== LASTING IMPACT END ====  */
 }
 
 .extra-img body {
