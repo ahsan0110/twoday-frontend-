@@ -449,19 +449,22 @@ body {
   margin-top: 0px;
   margin-bottom: 50px;
 }
-.frank-div {
+.frank-main-div {
   margin: 2rem;
   padding: 2rem;
+  background-color: var(--bg-color-purple);
+  border-radius: var(--border-radius);
+}
+.frank-div {
   display: flex;
   justify-content: space-between;
-  border-radius: var(--border-radius);
-  background-color: var(--bg-color-purple);
 }
 .frank-info {
   min-width: 44%;
   display: flex;
   flex-direction: column;
   margin-right: 100px;
+  gap: 50px;
 }
 .vertical-line {
   width: 1px;
@@ -932,8 +935,33 @@ footer {
   .blur-impact {
     max-height: 70vh;
   }
-
   /*  ===== LASTING IMPACT END ====  */
+
+  /*  ===== FRANK ====  */
+  .frank-div {
+    flex-direction: column;
+  }
+  .frank-div h1 {
+    font-size: 3.4rem;
+    line-height: 70px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  .frank-info {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    gap: 0px;
+  }
+  .frank-shakal {
+    margin-left: 0;
+  }
+  .uncle {
+    width: 44rem;
+  }
+
+  /*  ===== FRANK END ====  */
 }
 
 @media (max-width: 768px) {
@@ -1020,10 +1048,45 @@ footer {
   .blur-impact {
     max-height: 50vh;
   }
-  .impact-text{
+  .impact-text {
     width: 65%;
   }
   /*  ===== LASTING IMPACT END ====  */
+
+  /*  ===== FRANK ====  */
+  .frank-div h1 {
+    font-size: 2rem;
+    line-height: 40px;
+    letter-spacing: 1px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  .frank-info {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    gap: 0px;
+  }
+  .meet-link {
+    min-width: 156px;
+    padding-left: 80px;
+    text-align: center;
+  }
+  .frank-shakal {
+    margin-left: 0;
+  }
+  .uncle {
+    width: 16.5rem;
+  }
+  .frank-shakal q{
+    margin-bottom: 32px;
+  }
+  .arrow-links{
+    display: flex;
+    justify-content: space-between;
+  }
+  /*  ===== FRANK END ====  */
 }
 
 .extra-img body {

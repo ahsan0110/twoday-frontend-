@@ -2,11 +2,11 @@
   <div id="expert-section" class="frank-section">
 
     <!-- Career / Impact Section -->
-    <div class="last-impact">
-      <div class="last-impact-left">
-        <p id="lasting-impact">Tomorrow is built by the people who engineer it </p>
+    <div class="last-impact frank-heading-section">
+      <div class="last-impact-left frank-heading-section-left">
+        <p id="lasting-impact" class="frank-main-heading">Tomorrow is built by the people who engineer it </p>
       </div>
-      <div class="last-impact-right right-side-div">
+      <div class="last-impact-right right-side-div frank-heading-section-right">
         <p id="lasting-impact-para">
           At Twoday, growth isn’t a perk. It’s the point. Join us and build a career that keeps moving forward.
         </p>
@@ -15,37 +15,39 @@
     </div>
 
     <!-- Frank / Expert Section -->
-    <div class="frank-div">
-      <div class="frank-info">
-        <p class="small-text">{{ currentExpert.expertTag }}</p>
-        
-        <!-- Transition for text -->
+    <div class="frank-main-div">
+
+
+      <div class="frank-div">
+        <div class="frank-info">
+          <p class="small-text">{{ currentExpert.expertTag }}</p>
+
+          <!-- Transition for text -->
+          <transition name="fade" mode="out-in">
+            <h1 :key="currentExpert.expertNameRole" :class="['video-text-large', frankTextClass]"
+              v-html="currentExpert.expertNameRole">
+            </h1>
+          </transition>
+          <a :href="currentExpert.expertLink" class="staff-link meet-link">{{ currentExpert.expertCTA }}</a>
+            
+        </div>
+
+
+        <span class="vertical-line"></span>
+
+        <!-- Transition for quote and image -->
         <transition name="fade" mode="out-in">
-          <h1 
-            :key="currentExpert.expertNameRole" 
-            :class="['video-text-large', frankTextClass]" 
-            v-html="currentExpert.expertNameRole">
-          </h1>
+          <div class="frank-shakal" :key="currentExpert.expertNameAlt">
+            <q class="quoto">{{ currentExpert.quote }}</q>
+            <img class="uncle" :src="currentExpert.imageSrc" :alt="currentExpert.expertNameAlt">
+          </div>
         </transition>
-        
-        <a  :href="currentExpert.expertLink" class="staff-link">{{ currentExpert.expertCTA }}</a>
 
-        <div class="arrow-links">
-          <button  class="black-link" @click="prevExpert">←</button>
-          <button  class="black-link" @click="nextExpert">→</button>
-        </div>
       </div>
-
-      <span class="vertical-line"></span>
-
-      <!-- Transition for quote and image -->
-      <transition name="fade" mode="out-in">
-        <div class="frank-shakal" :key="currentExpert.expertNameAlt">
-          <q class="quoto">{{ currentExpert.quote }}</q>
-          <img class="uncle" :src="currentExpert.imageSrc" :alt="currentExpert.expertNameAlt">
-        </div>
-      </transition>
-
+      <div class="arrow-links">
+        <button class="black-link" @click="prevExpert">←</button>
+        <button class="black-link" @click="nextExpert">→</button>
+      </div>
     </div>
   </div>
 </template>
@@ -108,15 +110,19 @@ export default {
 </script>
 
 <style scoped>
-
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
-.fade-enter-from, .fade-leave-to {
+
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
-  transform: translateY(20px); 
+  transform: translateY(20px);
 }
-.fade-enter-to, .fade-leave-from {
+
+.fade-enter-to,
+.fade-leave-from {
   opacity: 1;
   transform: translateY(0);
 }
@@ -131,12 +137,14 @@ export default {
   transition: transform 0.2s;
   padding: 18px;
 }
+
 .arrow-links button:hover {
   background-color: orange;
   color: #000;
   transform: scale(1.1);
 }
-.frank-shakal q{
-    margin-bottom: 50px;
+
+.frank-shakal q {
+  margin-bottom: 50px;
 }
 </style>
