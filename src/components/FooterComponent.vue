@@ -10,10 +10,10 @@ export default {
             <div class="footer-column-1">
                 <p>Want to get in touch? Send us a message <br>using our contact form and we’ll reach out <br>as soon as
                     we can!</p>
-                <a class="staff-link footer-link" href="/extra">Get in touch</a>
+                <a class="staff-link footer-link" href="/contact">Get in touch</a>
             </div>
             <div class="footer-column-2">
-                <a class="heading-link" href="/extra">Service</a>
+                <a class="heading-link" href="/services">Service</a>
                 <a class="footer-small-links" href="/extra">Applied AI</a>
                 <a class="footer-small-links" href="/extra">Data</a>
                 <a class="footer-small-links" href="/extra">Cloud</a>
@@ -30,14 +30,14 @@ export default {
                 <a class="footer-small-links" href="/extra">All stories</a>
             </div>
             <div class="footer-column-4">
-                <a class="heading-link" href="/extra">Career</a>
+                <a class="heading-link" href="/career">Career</a>
                 <a class="footer-small-links" href="/extra">Open positions</a>
                 <a class="footer-small-links" href="/extra">Meet our experts</a>
                 <a class="footer-small-links" href="/extra">Growth</a>
                 <a class="footer-small-links" href="/extra">Our locations</a>
             </div>
             <div class="footer-column-5">
-                <a class="heading-link" href="/extra">About</a>
+                <a class="heading-link" href="/about">About</a>
                 <a class="footer-small-links" href="/extra">Our story</a>
                 <a class="footer-small-links" href="/extra">Leadership team</a>
                 <a class="footer-small-links" href="/extra">Board</a>

@@ -34,11 +34,11 @@ export default {
                     </div>
                 </div>
                 <label style="display: block;" for="email" required>Email*</label>
-                <input type="email">
+                <input type="email" placeholder="example@gmail.com">
                 <label style="display: block;" for="text" required>Company Name*</label>
-                <input type="email">
+                <input type="text" placeholder="">
                 <label style="display: block;" for="text" required>Job Title*</label>
-                <input type="email">
+                <input type="text" placeholder="web developer">
                 <label style="display: block;" for="country" required>Country*</label>
                 <select id="country" name="country" required>
                     <option value="">Select your country</option>
@@ -50,7 +50,7 @@ export default {
                     <option value="AU">Australia</option>
                 </select>
                 <label style="display: block;" for="text">Message*</label>
-                <input id="form-message" type="text">
+                <textarea id="form-message" placeholder="Write your message..." rows="6" required></textarea>
                 <p>When you provide your personal info above, Twoday will process it in according with our privacy
                     policy.</p>
                 <a class="staff-link" href="/extra">Submit </a>
