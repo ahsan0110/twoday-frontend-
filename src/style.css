@@ -139,6 +139,42 @@ body {
   transform: translateY(-5px);
 }
 
+/* Mobile */
+
+@media (max-width: 1200px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+    border-radius: 0 0 10px 10px;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  #contact {
+    display: none; /* hide desktop contact */
+  }
+}
+
+
+
 .hero-section video {
   position: absolute;
   top: 0;
@@ -838,6 +874,8 @@ footer {
 
 @media (max-width: 600px) {
   /* Mobile */
+
+
 }
 @media (max-width: 768px) {
   /* Large Mobile / Small Tablet */
