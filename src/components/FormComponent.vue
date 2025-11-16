@@ -36,7 +36,7 @@ export default {
                 <label style="display: block;" for="email" required>Email*</label>
                 <input type="email" placeholder="example@gmail.com">
                 <label style="display: block;" for="text" required>Company Name*</label>
-                <input type="text" placeholder="">
+                <input type="text" placeholder="Stech">
                 <label style="display: block;" for="text" required>Job Title*</label>
                 <input type="text" placeholder="web developer">
                 <label style="display: block;" for="country" required>Country*</label>

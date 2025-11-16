@@ -479,7 +479,11 @@ body {
 .news-section {
   margin-top: 50px;
   margin-bottom: 100px;
-  padding: 20px;
+  padding: 32px;
+}
+.about-news-section{
+  padding: 32px;
+
 }
 .left-text-large {
   font-size: 50px;
@@ -544,6 +548,7 @@ body {
   margin: 20px 0 30px 0;
 }
 .card-text h3:hover {
+  cursor: pointer;
   text-decoration: underline;
 }
 .card-text p {

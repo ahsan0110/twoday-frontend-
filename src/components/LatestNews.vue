@@ -1,10 +1,13 @@
 <script>
 export default {
     name: "LatestNews",
+    props:{
+        newsSectionClass:{type:String,default:"news-section"}
+    }
 }
 </script>
 <template>
-    <div class="news-section">
+    <div :class="newsSectionClass">
         <div class="news-text-large">
             <p class="left-text-large">Latest News</p>
         </div>
