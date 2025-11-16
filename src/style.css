@@ -963,18 +963,42 @@ footer {
   /*  ===== FRANK END ====  */
 
   /*  ===== LATEST NEWS ====  */
-  .news-section{
+  .news-section {
     padding-top: 0;
+    margin-bottom: 64px;
   }
-  .news-div{
+  .news-div {
     display: grid;
     gap: 30px;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
-  .news-card{
+  .news-card {
     width: auto;
   }
   /*  ===== LATEST NEWS END ====  */
+
+  /*  ===== FORM SECTION ====  */
+  .form-section,
+  .form-section-services {
+    flex-direction: column;
+  }
+  .form-section-left,
+  .form-section-right {
+    width: auto;
+  }
+  .form-section-left {
+    margin-bottom: 32px;
+  }
+  .form-section-left h1 {
+    font-size: 5rem;
+  }
+  .contact-form {
+    padding: 32px;
+    position: static;
+    left: auto;
+    transform: none;
+  }
+  /*  ===== FORM SECTION END ====  */
 }
 
 @media (max-width: 768px) {
@@ -1009,10 +1033,11 @@ footer {
   .career-hero .video-text-large,
   .service-hero .video-text-large,
   .video-text-large {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     margin-bottom: 64px;
     margin-top: 64px;
-    line-height: 75px;
+    line-height: 60px;
+    letter-spacing: 1px;
   }
   .staff-link {
     font-size: 1rem;
@@ -1022,6 +1047,10 @@ footer {
   /*  ===== LEVERAGE COMPONENT ====  */
   .lev-section {
     margin-top: 30px;
+  }
+  .career-lev{
+    margin-top: 86px;
+
   }
   .leverage-heading {
     font-size: 32px;
@@ -1102,12 +1131,41 @@ footer {
   /*  ===== FRANK END ====  */
 
   /*  ===== LATEST NEWS ====  */
-  .news-div{
+  .news-section {
+    margin-bottom: 32px;
+  }
+  .news-div {
     display: grid;
     gap: 30px;
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
   /*  ===== LATEST NEWS END ====  */
+
+  /*  ===== FORM SECTION ====  */
+  .form-section,
+  .form-section-services {
+    flex-direction: column;
+  }
+  .form-section-left,
+  .form-section-right {
+    width: auto;
+  }
+  .form-section-left {
+    margin-bottom: 32px;
+  }
+  .form-section-left h1 {
+    font-size: 2.5rem;
+  }
+  .form-row {
+    flex-direction: column;
+  }
+  .contact-form {
+    position: static;
+    left: auto;
+    transform: none;
+    padding: 16px;
+  }
+  /*  ===== FORM SECTION END ====  */
 }
 
 .extra-img body {
