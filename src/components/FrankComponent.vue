@@ -64,7 +64,7 @@ export default {
           expertTag: "Meet our experts",
           expertNameRole: "Meet Khubaib,<br>Smart Guy ",
           expertCTA: "Meet Khubaib",
-          expertLink: "#",
+          expertLink: "/extra",
           quote: "Asal Zindagi Aakhrat ki Zindagi ha, Dunya ki Dhoke yahi reh jane hain...",
           imageSrc: "Khubaib.png",
           expertNameAlt: "Khubaib"
@@ -73,7 +73,7 @@ export default {
           expertTag: "Meet our experts",
           expertNameRole: "Meet Frank,<br>AI & Architect",
           expertCTA: "Meet Frank",
-          expertLink: "#",
+          expertLink: "/extra",
           quote: "I wanted to make technology matter — not just for systems, but for people",
           imageSrc: "uncle.png",
           expertNameAlt: "frank"
@@ -82,7 +82,7 @@ export default {
           expertTag: "Meet our experts",
           expertNameRole: "Meet Auntie,<br>Product Designer",
           expertCTA: "Meet Auntie",
-          expertLink: "#",
+          expertLink: "/extra",
           quote: "Design is not just what it looks like, but how it works",
           imageSrc: "auntie.png",
           expertNameAlt: "Auntie"
