@@ -203,7 +203,7 @@ body {
   max-width: max-content;
 }
 .about-hero-content h1 {
-  font-size: 5.5rem;
+  font-size: 4.5rem;
 }
 .service-hero {
   padding: 70px 32px 50px 32px;
@@ -365,7 +365,7 @@ body {
   display: flex;
   gap: 10px;
   padding: 2rem;
-  width: 96%;
+  width: 94%;
   overflow: hidden;
 }
 
@@ -457,6 +457,13 @@ body {
   background-color: var(--bg-color-purple);
   border-radius: var(--border-radius);
 }
+.frank-image {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+}
 .frank-div {
   display: flex;
   justify-content: space-between;
@@ -509,10 +516,17 @@ body {
   background-color: #ffbf00;
   color: #000;
 }
-.uncle {
+/* .uncle {
   width: 40rem;
   border-radius: var(--border-radius);
   margin-top: auto;
+} */
+.frank-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 .news-section {
   margin-top: 50px;
@@ -871,11 +885,140 @@ footer {
   letter-spacing: 1px;
 }
 
-@media (max-width: 1280px) {
-  /* Small Laptop */
+@media (max-width: 1230px) {
+  .video-text-large {
+    font-size: 6.5rem;
+  }
+  .last-impact-section {
+    width: 90%;
+  }
+  .text-large,
+  .text-large-service {
+    font-size: 5.5rem;
+  }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1190px) {
+  .frank-div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .frank-info br {
+    display: none;
+  }
+  .frank-info {
+    min-width: 100%;
+  }
+  .frank-shakal {
+    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* .uncle {
+    width: 45rem;
+  } */
+}
+@media (max-width: 1090px) {
+  /* .uncle {
+    width: 40rem;
+  } */
+   .stat h1{
+    font-size: 80px;
+   }
+}
+@media (max-width: 1067px) {
+  .video-text-large {
+    font-size: 4.5rem;
+  }
+  .text-large,
+  .text-large-service {
+    font-size: 5 rem;
+  }
+  .news-div,
+  .lev-component {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .news-card {
+    width: auto;
+  }
+  .form-section-left h1 {
+    font-size: 4rem;
+  }
+  .mainText-services h1 {
+    font-size: 3rem;
+  }
+
+  .card a {
+    font-size: 12px;
+  }
+  .card {
+    width: auto;
+  }
+}
+@media (max-width: 1121px) {
+  /* .uncle {
+    width: 24rem;
+  } */
+}
+@media (max-width: 1040px) {
+  /* .uncle {
+    width: 22rem;
+  } */
+}
+@media (max-width: 977px) {
+  /* .uncle {
+    width: 20rem;
+  } */
+}
+
+@media (max-width: 951px) {
+  .last-impact-left p {
+    font-size: 48px;
+  }
+  .last-impact-right p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 903px) {
+  /* .uncle {
+    width: 18rem;
+  } */
+  .video-text-large {
+    font-size: 3rem;
+    line-height: 68px;
+  }
+  .hero-content {
+    padding: 156px 32px;
+  }
+  .frank-info {
+    gap: 0;
+  }
+}
+@media (max-width: 903px) {
+  .service-hero h1 {
+    line-height: 100px;
+  }
+}
+@media (max-width: 850px) {
+  /* .uncle {
+    width: 15rem;
+  } */
+}
+@media (max-width: 832px) {
+  .frank-heading-section-left p {
+    font-size: 32px;
+  }
+  .frank-heading-section-right p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
   /* Tablet */
 
   /*  ===== HERO SECTION ====  */
@@ -904,13 +1047,13 @@ footer {
   .career-hero .video-text-large,
   .service-hero .video-text-large,
   .video-text-large {
-    font-size: 6rem;
-    margin-bottom: 64px;
+    font-size: 4rem;
+    margin-bottom: 40px;
     margin-top: 64px;
-    line-height: 105px;
+    line-height: 70px;
   }
   .staff-link {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   /*  ===== HERO SECTION END ====  */
 
@@ -928,6 +1071,10 @@ footer {
   .card {
     width: 90%;
   }
+
+  .mainText-services h1 {
+    font-size: 2rem;
+  }
   /*  ===== LEVERAGE COMPONENT END ====  */
 
   /*  ===== LASTING IMPACT ====  */
@@ -935,7 +1082,7 @@ footer {
   .last-impact-section {
     flex-direction: column;
     gap: 20px;
-    width: 92%;
+    width: 82%;
   }
   .blur-impact {
     max-height: 70vh;
@@ -962,9 +1109,9 @@ footer {
   .frank-shakal {
     margin-left: 0;
   }
-  .uncle {
-    width: 44rem;
-  }
+  /* .uncle {
+    width: 39rem;
+  } */
   /*  ===== FRANK END ====  */
 
   /*  ===== LATEST NEWS ====  */
@@ -986,6 +1133,9 @@ footer {
   .form-section,
   .form-section-services {
     flex-direction: column;
+    br {
+      display: none;
+    }
   }
   .form-section-left,
   .form-section-right {
@@ -995,7 +1145,7 @@ footer {
     margin-bottom: 32px;
   }
   .form-section-left h1 {
-    font-size: 5rem;
+    font-size: 3rem;
   }
   .contact-form {
     padding: 32px;
@@ -1006,9 +1156,16 @@ footer {
   /*  ===== FORM SECTION END ====  */
 
   /*  ===== FOOTER ====  */
-  .footer-grid {
+  .footer-grid,
+  .footer-bottom-part {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-column-1 {
+    br {
+      display: none;
+    }
   }
   .heading-link {
     margin-bottom: 32px;
@@ -1017,15 +1174,45 @@ footer {
 
   /*  ===== Counter Component ====  */
   .stat h1 {
-    font-size: 87px;
+    font-size: 50px;
   }
   /*  ===== Counter Component END ====  */
 }
 
 @media (max-width: 768px) {
   /* Large Mobile / Small Tablet */
+  .hero-content,
+  .career-hero,
+  .service-hero,
+  .about-hero-content {
+    padding: 100px 32px;
+  }
+  .leverage-heading {
+    font-size: 2rem;
+  }
+  .lev-section h2 {
+    font-size: 24px;
+  }
 }
-
+@media (max-width: 740px) {
+  /* .uncle {
+    width: 35rem;
+  } */
+}
+@media (max-width: 657px) {
+  .hero-content,
+  .career-hero,
+  .service-hero,
+  .about-hero-content {
+    padding-bottom: 50px;
+  }
+  .leverage-heading {
+    padding-top: 62px;
+  }
+  /* .uncle {
+    width: 32rem;
+  } */
+}
 @media (max-width: 600px) {
   /* Mobile */
   #contact-mobile {
@@ -1070,6 +1257,7 @@ footer {
   /*  ===== LEVERAGE COMPONENT ====  */
   .lev-section {
     margin-top: 30px;
+    padding: 24px;
   }
   .career-lev {
     margin-top: 86px;
@@ -1087,8 +1275,11 @@ footer {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
   }
+  .about-hero-content {
+        padding: 105px 32px;
+    }
   .card {
-    width: 90%;
+    width: auto;
   }
   /*  ===== LEVERAGE COMPONENT END ====  */
 
@@ -1148,7 +1339,6 @@ footer {
   }
   .arrow-links {
     display: flex;
-    justify-content: space-between;
   }
   /*  ===== FRANK END ====  */
 

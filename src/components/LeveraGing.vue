@@ -28,14 +28,14 @@ export default {
                     number: "01",
                     title: "Data",
                     description: "We specialize in harnessing the power of data and artificial intelligence (AI) to drive businesses forward. Our data and AI services are designed to empower organizations with solutions that enhance decision-making and fuel business outcomes.",
-                    ctaText: "Become data driven",
+                    ctaText: "Data driven",
                     ctaLink: "/extra",
                 },
                 {
                     number: "02",
                     title: "Cloud",
                     description: "Our Cloud Platforms and Security experts help enterprises maximize return on their investments in Microsoft Systems Management and Cloud Platform Solutions.",
-                    ctaText: "Explore cloud solutions",
+                    ctaText: "Explore cloud",
                     ctaLink: "/extra",
                 },
                 {
@@ -49,7 +49,7 @@ export default {
                     number: "04",
                     title: "Applications",
                     description: "Looking to elevate your business operations? Partner with us to implement business applications that not only reduce costs but also increase efficiency. With our solutions for sales, marketing, customer service, and more, we're dedicated to your success.",
-                    ctaText: "Explore Applications",
+                    ctaText: "Applications",
                     ctaLink: "/extra",
                 }
             ]

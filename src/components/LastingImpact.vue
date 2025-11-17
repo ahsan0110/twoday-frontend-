@@ -35,8 +35,10 @@ export default {
 </script>
 
 <template>
-    <div class="last-impact">
-        <div class="last-impact-left">
+    <div class="lasting-impact-main">
+
+        <div class="last-impact">
+            <div class="last-impact-left">
             <p id="lasting-impact">{{ mainText }}</p>
         </div>
         <div class="last-impact-right">
@@ -59,5 +61,14 @@ export default {
             </div>
         </div>
     </section>
+</div>
 
 </template>
+
+<style>
+    .lasting-impact-main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>

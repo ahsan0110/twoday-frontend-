@@ -39,7 +39,9 @@
         <transition name="fade" mode="out-in">
           <div class="frank-shakal" :key="currentExpert.expertNameAlt">
             <q class="quoto">{{ currentExpert.quote }}</q>
-            <img class="uncle" :src="currentExpert.imageSrc" :alt="currentExpert.expertNameAlt">
+            <div class="frank-image">
+              <img class="uncle" :src="currentExpert.imageSrc" :alt="currentExpert.expertNameAlt">
+            </div>
           </div>
         </transition>
 
