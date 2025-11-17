@@ -18,6 +18,8 @@ body {
   font-family: "Inter", sans-serif;
 }
 .navbar {
+  position: fixed;
+  top: 0;
   margin-top: 30px;
   margin-inline: 2rem;
   padding: 15px 1rem;
@@ -89,7 +91,7 @@ body {
   box-shadow: none;
 }
 #contact-mobile {
-  width: 94%;
+  width: 96%;
   margin-right: 0;
   padding: 0.4rem 0.9rem;
   background-color: #1b1b1b;
@@ -916,6 +918,9 @@ footer {
   .service-lev-heading {
     display: none;
   }
+  .lev-section {
+    padding: 32px;
+  }
   .lev-component {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -999,16 +1004,22 @@ footer {
     transform: none;
   }
   /*  ===== FORM SECTION END ====  */
-  
-  /*  ===== NAVBAR ====  */
-  .footer-grid{
+
+  /*  ===== FOOTER ====  */
+  .footer-grid {
     display: flex;
     flex-direction: column;
   }
-  .heading-link{
+  .heading-link {
     margin-bottom: 32px;
   }
-  /*  ===== NAVBAR END ====  */
+  /*  ===== FOOTER END ====  */
+
+  /*  ===== Counter Component ====  */
+  .stat h1 {
+    font-size: 87px;
+  }
+  /*  ===== Counter Component END ====  */
 }
 
 @media (max-width: 768px) {
@@ -1017,7 +1028,9 @@ footer {
 
 @media (max-width: 600px) {
   /* Mobile */
-
+  #contact-mobile {
+    width: 91%;
+  }
   /*  ===== HERO SECTION ====  */
   .hero-section,
   .service-hero,
@@ -1058,9 +1071,8 @@ footer {
   .lev-section {
     margin-top: 30px;
   }
-  .career-lev{
+  .career-lev {
     margin-top: 86px;
-
   }
   .leverage-heading {
     font-size: 32px;
@@ -1175,16 +1187,33 @@ footer {
     transform: none;
     padding: 16px;
   }
-  .footer-bottom-part{
+  .footer-bottom-part {
     flex-direction: column;
     align-items: flex-start;
   }
-  .footer-bottom-part a{
+  .footer-bottom-part a {
     margin-top: auto;
   }
   /*  ===== FORM SECTION END ====  */
-  
-  
+
+  /*  ===== Counter Component ====  */
+  .stats-container {
+    display: block;
+  }
+  /*  ===== Counter Component END ====  */
+
+  /*  ===== OPRN POSITIONS ====  */
+  .single-position-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 10px;
+  }
+  .open-positions-section h1 {
+    font-size: 2.3rem;
+  }
+  /*  ===== OPRN POSITIONS END ====  */
 }
 
 .extra-img body {
