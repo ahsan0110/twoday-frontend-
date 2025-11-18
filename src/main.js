@@ -20,3 +20,7 @@ router.afterEach(() => {
     loadingState.loading = false;
   }, 700);
 });
+
+router.beforeEach((to) => {
+  document.title = to.meta.title || "MY APP";
+});
