@@ -8,7 +8,21 @@ import FrankComponent from '@/components/FrankComponent.vue'
 import FormComponent from '@/components/FormComponent.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 
+import { useHead } from '@vueuse/head';
+
 export default {
+
+    setup() {
+        useHead({
+            title: `Service Page`,
+            meta: [
+                {
+                    name:`description`,
+                    content:`This is Service Page`,
+                }
+            ],
+        })
+    },
     data() {
         return {
             impactData: [

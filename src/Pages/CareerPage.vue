@@ -7,7 +7,22 @@ import FormComponent from '@/components/FormComponent.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 import OpenPositions from '@/components/OpenPositions.vue';
 
+import { useHead } from '@vueuse/head';
+
 export default {
+
+    setup() {
+        useHead({
+            title: `Career Page`,
+            meta: [
+                {
+                    name:`description`,
+                    content:`This is Career Page`,
+                }
+            ],
+        })
+    },
+
     data() {
         return {
             careerCard: [

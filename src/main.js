@@ -3,10 +3,14 @@ import App from './App.vue'
 import '/src/style.css'
 import router from './router'
 import { loadingState } from "./loading";
+import { createHead } from '@vueuse/head';
+
 
 const app = createApp(App);
+const head = createHead();
 
 app.use(router);
+app.use(head);
 app.mount('#app');
 
 
@@ -19,8 +23,4 @@ router.afterEach(() => {
   setTimeout(() => {
     loadingState.loading = false;
   }, 700);
-});
-
-router.beforeEach((to) => {
-  document.title = to.meta.title || "MY APP";
 });

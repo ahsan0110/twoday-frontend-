@@ -6,8 +6,23 @@ import FooterComponent from '@/components/FooterComponent.vue';
 import CounterNumber from '@/components/CounterNumber.vue';
 import LatestNews from '@/components/LatestNews.vue';
 import LastingImpact from '@/components/LastingImpact.vue';
+import { useHead } from '@vueuse/head';
+
+
 
 export default {
+
+    setup() {
+        useHead({
+            title: `About Page`,
+            meta: [
+                {
+                    name:`description`,
+                    content:`This is About Page`,
+                }
+            ],
+        })
+    },
 
     name: 'AboutPage',
 
@@ -57,14 +72,9 @@ export default {
         largeText="We create a better tomorrow<br>through AI and technology" videoSrc="women.mp4" ctaText="Get in Touch"
         ctaLink="#form-section-id" />
     <CounterNumber />
-    <LatestNews
-        newsSectionClass="about-news-section"
-    />
+    <LatestNews newsSectionClass="about-news-section" />
 
-    <LastingImpact
-        mainText="Our values show in everything we do"
-        :items="data"
-    />
+    <LastingImpact mainText="Our values show in everything we do" :items="data" />
 
     <FormComponent mainText="Get to know us" />
     <FooterComponent />

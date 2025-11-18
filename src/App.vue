@@ -8,8 +8,33 @@
   </div>
 </template>
 
-<script setup>
+<script>
 import { loadingState } from "./loading";
+
+import { computed, reactive } from 'vue'
+import { useHead } from '@vueuse/head'
+export default {
+  setup() {
+    const siteData = reactive({
+      title: "My App",
+      description: "Twoday Clone Website",
+    });
+
+    useHead({
+      title: computed(() => siteData.title),
+      meta: [
+        {
+          name: "description",
+          content: computed(() => siteData.description),
+        },
+      ],
+    }); 
+    return {
+      loadingState, 
+      siteData,
+    };
+  },
+};
 </script>
 
 <style>
@@ -33,6 +58,8 @@ import { loadingState } from "./loading";
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>
