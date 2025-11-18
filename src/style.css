@@ -924,9 +924,9 @@ footer {
   /* .uncle {
     width: 40rem;
   } */
-   .stat h1{
+  .stat h1 {
     font-size: 80px;
-   }
+  }
 }
 @media (max-width: 1067px) {
   .video-text-large {
@@ -1092,6 +1092,7 @@ footer {
   /*  ===== FRANK ====  */
   .frank-div {
     flex-direction: column;
+    gap: 0;
   }
   .frank-div h1 {
     font-size: 3.4rem;
@@ -1207,13 +1208,13 @@ footer {
     padding-bottom: 50px;
   }
   .leverage-heading {
-    padding-top: 62px;
+    padding-top: 0px;
   }
   /* .uncle {
     width: 32rem;
   } */
 }
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   /* Mobile */
   #contact-mobile {
     width: 91%;
@@ -1230,7 +1231,7 @@ footer {
   .service-hero,
   .career-hero,
   .about-hero-content {
-    padding: 64px 32px;
+    padding: 64px 16px;
   }
   .service-hero {
     padding-bottom: 16px;
@@ -1257,7 +1258,7 @@ footer {
   /*  ===== LEVERAGE COMPONENT ====  */
   .lev-section {
     margin-top: 30px;
-    padding: 24px;
+    padding: 16px;
   }
   .career-lev {
     margin-top: 86px;
@@ -1276,8 +1277,8 @@ footer {
     grid-template-columns: repeat(1, 1fr);
   }
   .about-hero-content {
-        padding: 105px 32px;
-    }
+    padding: 105px 16px;
+  }
   .card {
     width: auto;
   }
@@ -1310,11 +1311,14 @@ footer {
 
   /*  ===== FRANK ====  */
   .frank-div h1 {
-    font-size: 2rem;
-    line-height: 40px;
+    font-size: 1.5rem;
+    line-height: 28px;
     letter-spacing: 1px;
-    margin-top: 32px;
-    margin-bottom: 32px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  .small-text {
+    font-size: 10px;
   }
   .frank-info {
     max-width: 100%;
@@ -1324,8 +1328,6 @@ footer {
     gap: 0px;
   }
   .meet-link {
-    min-width: 156px;
-    padding-left: 80px;
     text-align: center;
   }
   .frank-shakal {
@@ -1405,7 +1407,22 @@ footer {
   }
   /*  ===== OPRN POSITIONS END ====  */
 }
-
+@media (max-width: 426px) {
+  .last-impact-left p {
+    font-size: 32px;
+  }
+  .frank-heading-section-right p {
+    font-size: 14px;
+  }
+}
+@media (max-width: 390px) {
+  .hero-content,
+  .service-hero,
+  .career-hero,
+  .about-hero-content {
+    padding: 32px 16px;
+  }
+}
 .extra-img body {
   background-color: #848484;
 }
