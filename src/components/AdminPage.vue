@@ -70,26 +70,13 @@ export default {
 </script>
 
 <style scoped>
-*{
-  margin: 0;
-  padding: 0;
-}
 
-/* Full page dark background & center content */
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  background: #f5f5f5; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #1f2937; 
-}
 .admin-section{
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .admin-container {
