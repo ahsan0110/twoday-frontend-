@@ -4,9 +4,9 @@ import AboutPage from "./Pages/AboutPage.vue";
 import CareerPage from "./Pages/CareerPage.vue";
 import ExtraInfo from "./Pages/ExtraInfo.vue";
 import ContactPage from "./Pages/ContactPage.vue";
-
 import { createRouter, createWebHistory } from "vue-router";
-import MetaComponent from "./components/MetaComponent.vue";
+import AdminPage from "./components/AdminPage.vue";
+
 
 const routes = [
   {
@@ -40,10 +40,10 @@ const routes = [
     path: "/contact",
   },
   {
-    name: "Test",
-    component: MetaComponent,
-    path: "/metatest",
-  },
+    path: '/admin',
+    name: 'admin',
+    component: AdminPage,
+  }
 ];
 
 const router = createRouter({

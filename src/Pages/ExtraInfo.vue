@@ -8,7 +8,7 @@ import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 
 import { useHead } from '@vueuse/head';
-import MetaComponent from '@/components/MetaComponent.vue';
+import MetaComponent from '@/components/AdminPage.vue';
 
 export default {
 
@@ -17,8 +17,8 @@ export default {
             title: `Extra Page`,
             meta: [
                 {
-                    name:`description`,
-                    content:`This is Extra Page`,
+                    name: `description`,
+                    content: `This is Extra Page`,
                 }
             ],
         })
