@@ -1,12 +1,6 @@
 <template>
     <NavbarComponent />
-    <div class="extra-img" style="display: flex;
-                                  align-items: center;
-                                  justify-content: center;  
-                                  height: 90vh;
-                                  background-color: black;">
-        <img src="cat.jpeg" alt="" width="500px">
-    </div>
+    <MetaComponent />
     <FooterComponent />
 </template>
 <script>
@@ -14,6 +8,7 @@ import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 
 import { useHead } from '@vueuse/head';
+import MetaComponent from '@/components/MetaComponent.vue';
 
 export default {
 
@@ -31,6 +26,7 @@ export default {
     components: {
         NavbarComponent,
         FooterComponent,
+        MetaComponent,
     }
 }
 </script>

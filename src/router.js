@@ -4,7 +4,9 @@ import AboutPage from "./Pages/AboutPage.vue";
 import CareerPage from "./Pages/CareerPage.vue";
 import ExtraInfo from "./Pages/ExtraInfo.vue";
 import ContactPage from "./Pages/ContactPage.vue";
+
 import { createRouter, createWebHistory } from "vue-router";
+import MetaComponent from "./components/MetaComponent.vue";
 
 const routes = [
   {
@@ -36,6 +38,11 @@ const routes = [
     name: "ContactPage",
     component: ContactPage,
     path: "/contact",
+  },
+  {
+    name: "Test",
+    component: MetaComponent,
+    path: "/metatest",
   },
 ];
 
