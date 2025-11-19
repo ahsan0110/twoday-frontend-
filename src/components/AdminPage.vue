@@ -26,12 +26,15 @@
     </table>
   </div>
 </div>
+
+<FooterComponent/>
 </template>
 
 
 <script>
 import apiClient from "../apiClient";
 import NavbarComponent from "./NavbarComponent.vue";
+import FooterComponent from "./FooterComponent.vue";
 
 export default {
   name: "AdminPages",
@@ -44,6 +47,7 @@ export default {
   },
   components:{
     NavbarComponent,
+    FooterComponent,
   },
 
   mounted() {

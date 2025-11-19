@@ -7,6 +7,7 @@
       <a href="/services"><span class="nav-span" >• </span>Services</a>
       <a href="/career"><span class="nav-span" >• </span>Career</a>
       <a href="/about"><span class="nav-span" >• </span>About</a>
+      <a href="/admin"><span class="nav-span" >• </span>Admin</a>
 
       <!-- Contact link (only visible in mobile menu) -->
       <a v-if="isMobile" href="/contact" id="contact-mobile">Contact us</a>
