@@ -8,33 +8,10 @@
   </div>
 </template>
 
-<script>
-import { loadingState } from "./loading";
+<script setup>
 
-import { computed, reactive } from 'vue'
-import { useHead } from '@vueuse/head'
-export default {
-  setup() {
-    const siteData = reactive({
-      title: "My App",
-      description: "Twoday Clone Website",
-    });
+import { loadingState } from './loading'
 
-    useHead({
-      title: computed(() => siteData.title),
-      meta: [
-        {
-          name: "description",
-          content: computed(() => siteData.description),
-        },
-      ],
-    }); 
-    return {
-      loadingState, 
-      siteData,
-    };
-  },
-};
 </script>
 
 <style>

@@ -7,7 +7,7 @@
         <!-- ADD FORM -->
         <div v-if="showAddForm" class="form-box">
             <input v-model="newTag.meta_name" placeholder="Meta Name" />
-            <input v-model="newTag.meta_content" placeholder="Meta Content" />
+            <input v-model="newTag.meta_value" placeholder="Meta Value" />
             <button class="save-btn" @click="addMetaTag">Save</button>
             <button class="cancel-btn" @click="showAddForm = false">Cancel</button>
         </div>
@@ -24,7 +24,7 @@
             <tbody>
                 <tr v-for="tag in tags" :key="tag.id">
                     <td>{{ tag.meta_name }}</td>
-                    <td>{{ tag.meta_content }}</td>
+                    <td>{{ tag.meta_value }}</td>
                     <td>
                         <button class="edit-btn" @click="editTag(tag)">Edit</button>
                         <button class="delete-btn" @click="deleteTag(tag.id)">Delete</button>
@@ -36,7 +36,7 @@
         <!-- EDIT FORM -->
         <div v-if="editingTag" class="form-box">
             <input v-model="editingTag.meta_name" />
-            <input v-model="editingTag.meta_content" />
+            <input v-model="editingTag.meta_value" />
             <button class="save-btn" @click="updateTag">Update</button>
             <button class="cancel-btn" @click="editingTag = null">Cancel</button>
         </div>
@@ -56,7 +56,7 @@ export default {
         return {
             tags: [],
             showAddForm: false,
-            newTag: { meta_name: "", meta_content: "", page_id: null },
+            newTag: { meta_name: "", meta_value: "", page_id: null },
             editingTag: null,
         };
     },
@@ -77,7 +77,7 @@ export default {
             this.fetchTags();
             this.showAddForm = false;
             this.newTag.meta_name = "";
-            this.newTag.meta_content = "";
+            this.newTag.meta_value = "";
         },
 
         editTag(tag) {
