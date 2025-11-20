@@ -10,19 +10,31 @@
       <table v-else>
         <thead>
           <tr>
-            <th>Name</th>
             <th>Title</th>
-            <th>Description</th>
+            <th>Update</th>
+            <th>Delete</th>
+            <th>Meta Tags</th>
           </tr>
         </thead>
 
         <tbody>
           <tr v-for="page in pages" :key="page.id">
-            <td data-label="Name">{{ page.name }}</td>
-            <td data-label="Title">{{ page.title }}</td>
-            <td data-label="Title">{{ page.description }}</td>
+            <td>{{ page.title }}</td>
+
+            <td>
+              <button class="edit-btn" @click="editPage(page.id)">Update</button>
+            </td>
+
+            <td>
+              <button class="delete-btn" @click="deletePage(page.id)">Delete</button>
+            </td>
+
+            <td>
+              <button class="tags-btn" @click="goToMetaTags(page.id)">Meta Tags</button>
+            </td>
           </tr>
         </tbody>
+
       </table>
       <div class="table-footer">
         <button @click="goToAddPage" class="add-page">Add Pages</button>
@@ -36,8 +48,8 @@
 
 <script>
 import apiClient from "../apiClient";
-import NavbarComponent from "./NavbarComponent.vue";
-import FooterComponent from "./FooterComponent.vue";
+import NavbarComponent from '@/components/NavbarComponent.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
 
 export default {
   name: "AdminPages",
@@ -68,18 +80,38 @@ export default {
         this.loading = false;
       }
     },
+
+    editPage(id) {
+      this.$router.push({ name: "EditPage", params: { id } });
+    },
+
+    deletePage(id) {
+      if (!confirm("Are you sure you want to delete this page?")) return;
+
+      apiClient.delete(`/pages/${id}`)
+        .then(() => {
+          this.pages = this.pages.filter(p => p.id !== id);
+        })
+        .catch(err => console.error("Delete failed", err));
+    },
+
+    goToMetaTags(id) {
+      this.$router.push({ name: "MetaTags", params: { pageId: id } });
+    },
+
     goToAddPage() {
-    this.$router.push({ name: "AddPage" });
+      this.$router.push({ name: "AddPage" });
+    }
   }
-  },
+
 };
 </script>
 
 <style>
 .table-footer {
   display: flex;
-  justify-content: flex-end; /* Align to right */
-  margin-top: 20px; /* spacing above button */
+  justify-content: flex-end;
+  margin-top: 20px;
 }
 
 .add-page {
@@ -117,26 +149,21 @@ export default {
   border-bottom: 5px solid #ff6600;
 }
 
-/* Title */
 .admin-title {
   font-size: 32px;
   margin-bottom: 25px;
   font-weight: 700;
   color: #ff6600;
-  /* Orange title */
   text-align: center;
 }
 
-/* Table */
 table {
   width: 100%;
   border-collapse: collapse;
   border-radius: 12px;
   overflow: hidden;
   background: #1f1f1f;
-  /* Dark table background */
   color: #f5f5f5;
-  /* Light text */
 }
 
 table:hover {
@@ -145,7 +172,6 @@ table:hover {
 
 thead {
   background: #111111;
-  /* Black table header */
 }
 
 thead th {
@@ -153,7 +179,6 @@ thead th {
   text-align: left;
   font-size: 15px;
   color: #ff9900;
-  /* Orange header text */
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -164,8 +189,7 @@ tbody tr {
 }
 
 tbody tr:hover {
-  background-color: #ff9900;
-  color: #111111;
+  background-color: #000000;
 
 }
 
@@ -173,23 +197,53 @@ tbody td {
   padding: 14px 10px;
   font-size: 15px;
   color: #f5f5f5;
-  /* Light text */
 }
-
-tbody td:hover {
-  color: #111111;
-
-}
-
-/* Loading text */
 .loading {
   font-size: 18px;
   color: #999999;
   padding: 20px 0;
   text-align: center;
 }
+.edit-btn, .delete-btn, .tags-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 8px;
+  transition: 0.3s ease;
+}
 
-/* Scrollbar */
+.edit-btn {
+  background: #ff9900;
+  color: #111;
+}
+.edit-btn:hover {
+  color: #000000;
+  background: #00c3ff;
+}
+
+.delete-btn {
+  background-color: #000000;
+  color: #ff3300;
+}
+.delete-btn:hover {
+  background: #ff3300;
+  color: #000000;
+}
+
+.tags-btn {
+  background: #111;
+  color: #ff9900;
+  border: 1px solid #ff9900;
+}
+.tags-btn:hover {
+  background: #ff9900;
+  color: #111;
+}
+
+
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -203,7 +257,6 @@ tbody td:hover {
   background: #555555;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   table {
     font-size: 14px;
@@ -229,7 +282,6 @@ tbody td:hover {
     content: attr(data-label);
     font-weight: bold;
     color: #ff6600;
-    /* Orange labels */
   }
 }
 </style>

@@ -1,33 +1,13 @@
 <template>
   <div class="add-page-section">
-    
-
     <div class="form-container">
+
       <h1 class="form-title">Add New Page</h1>
-
       <form @submit.prevent="submitForm">
-        <div class="form-group">
-          <label for="name">Page Name</label>
-          <input type="text" id="name" v-model="form.name" required />
-        </div>
-
-        <div class="form-group">
-          <label for="slug">Slug</label>
-          <input type="text" id="slug" v-model="form.slug" required />
-        </div>
 
         <div class="form-group">
           <label for="title">Title</label>
           <input type="text" id="title" v-model="form.title" required />
-        </div>
-
-        <div class="form-group">
-          <label for="meta_tags">Meta Tags (JSON)</label>
-          <textarea
-            id="meta_tags"
-            v-model="form.meta_tags"
-            placeholder='{"description": "Some description"}'
-          ></textarea>
         </div>
 
         <button type="submit" class="submit-btn" :disabled="loading">
@@ -36,7 +16,7 @@
       </form>
     </div>
 
-    
+
   </div>
 </template>
 
@@ -46,15 +26,10 @@ import apiClient from "../apiClient";
 
 export default {
   name: "AddPage",
- 
-
   data() {
     return {
       form: {
-        name: "",
         title: "",
-        description: "",
-        meta_tags: '{"description": ""}', // default JSON string
       },
       loading: false,
     };
@@ -65,30 +40,31 @@ export default {
       this.loading = true;
 
       try {
-        // Convert meta_tags string to object
+        
         const payload = {
-          ...this.form,
-          meta_tags: JSON.parse(this.form.meta_tags),
+          title: this.form.title,
         };
 
         await apiClient.post("/pages", payload);
 
         alert("Page added successfully!");
-        this.$router.push({ name: "AdminPages" }); // go back to listing
+        this.$router.push({ name: "admin" }); 
       } catch (error) {
         console.error("Failed to add page:", error);
         alert("Error adding page. Check console for details.");
       } finally {
         this.loading = false;
       }
-    },
+    }
+
   },
 };
 </script>
 
 <style scoped>
 .add-page-section {
-  background: #111111; /* dark background */
+  background: #111111;
+  /* dark background */
   min-height: 100vh;
   color: #f5f5f5;
   display: flex;

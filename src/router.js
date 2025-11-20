@@ -6,8 +6,10 @@ import AboutPage from "./Pages/AboutPage.vue";
 import CareerPage from "./Pages/CareerPage.vue";
 import ExtraInfo from "./Pages/ExtraInfo.vue";
 import ContactPage from "./Pages/ContactPage.vue";
-import AdminPage from "./components/AdminPage.vue";
+import AdminPage from "./Pages/AdminPage.vue";
 import AddPage from "./Pages/AddPage.vue";
+import MetaTags from "./Pages/MetaTags.vue";
+import EditPage from "./Pages/EditPage.vue";
 
 
 const routes = [
@@ -42,15 +44,25 @@ const routes = [
     path: "/contact",
   },
   {
-    path: '/admin',
-    name: 'admin',
+    path: "/admin",
+    name: "admin",
     component: AdminPage,
   },
   {
-    path: '/admin/add-page',
-    name: 'AddPage',
+    path: "/admin/add-page",
+    name: "AddPage",
     component: AddPage,
-  }
+  },
+  {
+    path: "/admin/pages/edit/:id",
+    name: "EditPage",
+    component: EditPage,
+  },
+  {
+    path: "/admin/pages/:pageId/meta-tags",
+    name: "MetaTags",
+    component: MetaTags,
+  },
 ];
 
 const router = createRouter({

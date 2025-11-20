@@ -8,7 +8,7 @@ import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 
 import { useHead } from '@vueuse/head';
-import MetaComponent from '@/components/AdminPage.vue';
+import MetaComponent from '@/Pages/AdminPage.vue';
 
 export default {
 
