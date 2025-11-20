@@ -1,33 +1,36 @@
 <template>
-  <NavbarComponent/>
+  <NavbarComponent />
   <div class="admin-section">
 
     <div class="admin-container">
       <h1 class="admin-title">Pages Listing</h1>
-      
+
       <div v-if="loading" class="loading">Loading...</div>
-      
-    <table v-else>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Slug</th>
-          <th>Title</th>
-        </tr>
-      </thead>
 
-      <tbody>
-        <tr v-for="page in pages" :key="page.id">
-          <td data-label="Name">{{ page.name }}</td>
-          <td data-label="Slug">{{ page.slug }}</td>
-          <td data-label="Title">{{ page.title }}</td>
-        </tr>
-      </tbody>
-    </table>
+      <table v-else>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr v-for="page in pages" :key="page.id">
+            <td data-label="Name">{{ page.name }}</td>
+            <td data-label="Title">{{ page.title }}</td>
+            <td data-label="Title">{{ page.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="table-footer">
+        <button @click="goToAddPage" class="add-page">Add Pages</button>
+      </div>
+    </div>
   </div>
-</div>
 
-<FooterComponent/>
+  <FooterComponent />
 </template>
 
 
@@ -45,7 +48,7 @@ export default {
       loading: true,
     };
   },
-  components:{
+  components: {
     NavbarComponent,
     FooterComponent,
   },
@@ -58,20 +61,44 @@ export default {
     async fetchPages() {
       try {
         const response = await apiClient.get("/pages");
-        this.pages = response.data.pages || response.data; 
+        this.pages = response.data.pages || response.data;
       } catch (error) {
         console.error("Failed to load pages:", error);
       } finally {
         this.loading = false;
       }
     },
+    goToAddPage() {
+    this.$router.push({ name: "AddPage" });
+  }
   },
 };
 </script>
 
-<style scoped>
+<style>
+.table-footer {
+  display: flex;
+  justify-content: flex-end; /* Align to right */
+  margin-top: 20px; /* spacing above button */
+}
 
-.admin-section{
+.add-page {
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  padding: 14px 20px;
+  background-color: #ff6600;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-page:hover {
+  background-color: #ff9900;
+  color: #111;
+}
+
+.admin-section {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,11 +110,11 @@ export default {
   width: 90%;
   max-width: 1200px;
   padding: 30px;
-  background: #ffffff; 
+  background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 6px 30px rgba(0,0,0,0.2); 
-  border-top: 5px solid #ff6600; 
-  border-bottom: 5px solid #ff6600; 
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+  border-top: 5px solid #ff6600;
+  border-bottom: 5px solid #ff6600;
 }
 
 /* Title */
@@ -95,7 +122,8 @@ export default {
   font-size: 32px;
   margin-bottom: 25px;
   font-weight: 700;
-  color: #ff6600; /* Orange title */
+  color: #ff6600;
+  /* Orange title */
   text-align: center;
 }
 
@@ -105,21 +133,27 @@ table {
   border-collapse: collapse;
   border-radius: 12px;
   overflow: hidden;
-  background: #1f1f1f; /* Dark table background */
-  color: #f5f5f5; /* Light text */
+  background: #1f1f1f;
+  /* Dark table background */
+  color: #f5f5f5;
+  /* Light text */
 }
-table:hover{
+
+table:hover {
   cursor: pointer;
 }
+
 thead {
-  background: #111111; /* Black table header */
+  background: #111111;
+  /* Black table header */
 }
 
 thead th {
   padding: 14px 10px;
   text-align: left;
   font-size: 15px;
-  color: #ff9900; /* Orange header text */
+  color: #ff9900;
+  /* Orange header text */
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -130,17 +164,19 @@ tbody tr {
 }
 
 tbody tr:hover {
-  background-color: #ff9900; 
+  background-color: #ff9900;
   color: #111111;
-  
+
 }
 
 tbody td {
   padding: 14px 10px;
   font-size: 15px;
-  color: #f5f5f5; /* Light text */
+  color: #f5f5f5;
+  /* Light text */
 }
-tbody td:hover{
+
+tbody td:hover {
   color: #111111;
 
 }
@@ -192,10 +228,8 @@ tbody td:hover{
   tbody td::before {
     content: attr(data-label);
     font-weight: bold;
-    color: #ff6600; /* Orange labels */
+    color: #ff6600;
+    /* Orange labels */
   }
 }
-
-
-
 </style>
