@@ -6,6 +6,8 @@
       <h1 class="admin-title">Pages Listing</h1>
       <div class="search-div">
         <input type="text" v-model="searchQuery" placeholder="Search pages..." class="search-input" />
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button><i class="fa-solid fa-xmark"></i></button>
       </div>
 
 
@@ -15,9 +17,7 @@
         <thead>
           <tr>
             <th>Title</th>
-            <th>Update</th>
-            <th>Delete</th>
-            <th>Meta Tags</th>
+            <th>Actions</th>
           </tr>
         </thead>
 
@@ -25,15 +25,12 @@
           <tr v-for="page in filteredPages" :key="page.id">
             <td>{{ page.title }}</td>
             <td>
-              <button class="edit-btn" @click="editPage(page.id)">Update</button>
-            </td>
+              <div class="table-icons">
+                <button class="edit-btn" @click="editPage(page.id)"><i class="fa-solid fa-pen"></i></button>
+                <button class="delete-btn" @click="deletePage(page.id)"><i class="fa-solid fa-trash "></i></button>
+                <button class="tags-btn" @click="goToMetaTags(page.id)"><i class="fa-solid fa-eye"></i></button>
 
-            <td>
-              <button class="delete-btn" @click="deletePage(page.id)">Delete</button>
-            </td>
-
-            <td>
-              <button class="tags-btn" @click="goToMetaTags(page.id)">Meta Tags</button>
+              </div>
             </td>
           </tr>
         </tbody>
@@ -155,7 +152,7 @@ export default {
 }
 
 .admin-container {
-  width: 90%;
+  width: 50%;
   max-width: 1200px;
   padding: 30px;
   background: #ffffff;
@@ -172,7 +169,10 @@ export default {
   color: #ff6600;
   text-align: center;
 }
-
+.table-icons{
+  display: flex;
+  gap: 10px;
+}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -247,6 +247,7 @@ tbody td {
 .delete-btn {
   background-color: #000000;
   color: #ff3300;
+  margin-right: 2px;
 }
 
 .delete-btn:hover {
@@ -264,14 +265,18 @@ tbody td {
   background: #ff9900;
   color: #111;
 }
-.search-div{
+
+.search-div {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.search-div button{
+  padding: 10px;
 }
 .search-input {
   width: 50%;
   padding: 2px 18px;
-  margin-bottom: 20px;
   border-radius: 50px;
   border: 2px solid #000000;
   font-size: 16px;
@@ -281,9 +286,11 @@ tbody td {
   color: #fff;
   box-shadow: 0 0 8px #3a3a3a;
 }
-.search-input::placeholder{
+
+.search-input::placeholder {
   color: #d8d8d8;
 }
+
 .search-input:focus {
   border-color: #ffa600;
   box-shadow: 0 0 8px #ff9900;
