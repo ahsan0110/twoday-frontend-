@@ -1,99 +1,123 @@
-<script>
+<script setup>
+import { ref, onMounted, computed } from 'vue';
+import { useHead } from '@vueuse/head';
+import apiClient from '@/apiClient';
+
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import HeroSection from '@/components/HeroSection.vue';
 import LeveraGing from '@/components/LeveraGing.vue';
-import LastingImpact from '@/components/LastingImpact.vue'
-import FrankComponent from '@/components/FrankComponent.vue'
-// import LatestNews from '@/components/LatestNews.vue'
-import FormComponent from '@/components/FormComponent.vue'
-import FooterComponent from '@/components/FooterComponent.vue'
+import LastingImpact from '@/components/LastingImpact.vue';
+import FrankComponent from '@/components/FrankComponent.vue';
+import FormComponent from '@/components/FormComponent.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
 
-import { useHead } from '@vueuse/head';
+const titleTag = ref("Service Page");
+const metaTagsRaw = ref([]);
 
-export default {
 
-    setup() {
-        useHead({
-            title: `Service Page`,
-            meta: [
-                {
-                    name:`description`,
-                    content:`This is Service Page`,
-                }
-            ],
-        })
-    },
-    data() {
-        return {
-            impactData: [
-                {
-                    type: "image",
-                    src: "hands.png",
-                    text: "From digital health solutions to research data platforms, we connect innovation with care. We help healthcare providers, pharma, and life science organizations.",
-                    cta: "Discover More",
-                    link: "#"
-                },
-                {
-                    type: "image",
-                    src: "industrials.png",
-                    text: "We bring intelligence to production, operations, and supply chains. From predictive maintenance to smart factories, we help manufacturers boost efficiency, reduce downtime, and turn complexity into clarity.",
-                    cta: "Discover More",
-                    link: "#"
-                },
-                {
-                    type: "image",
-                    src: "energy.png",
-                    text: "We enable smarter, more sustainable systems - from energy optimization to reliable grid operations.",
-                    cta: "Discover More",
-                    link: "#"
-                }
-            ]
-        }
-    },
-    name: 'ServicePage',
-    components: {
-        NavbarComponent,
-        HeroSection,
-        LeveraGing,
-        LastingImpact,
-        FrankComponent,
-        // LatestNews,
-        FormComponent,
-        FooterComponent,
+const metaTags = computed(() =>
+  metaTagsRaw.value.map(tag => ({
+    name: tag.name,
+    content: tag.content
+  }))
+);
 
-    }
-}
+
+useHead({
+  title: titleTag,
+  meta: metaTags
+});
+
+
+const impactData = ref([
+  {
+    type: "image",
+    src: "hands.png",
+    text: "From digital health solutions to research data platforms, we connect innovation with care. We help healthcare providers, pharma, and life science organizations.",
+    cta: "Discover More",
+    link: "#"
+  },
+  {
+    type: "image",
+    src: "industrials.png",
+    text: "We bring intelligence to production, operations, and supply chains. From predictive maintenance to smart factories, we help manufacturers boost efficiency, reduce downtime, and turn complexity into clarity.",
+    cta: "Discover More",
+    link: "#"
+  },
+  {
+    type: "image",
+    src: "energy.png",
+    text: "We enable smarter, more sustainable systems - from energy optimization to reliable grid operations.",
+    cta: "Discover More",
+    link: "#"
+  }
+]);
+
+onMounted(async () => {
+  try {
+    const pageId = 2; 
+    const res = await apiClient.get(`/pages/${pageId}/meta-tags`);
+    const pageMeta = res.data;
+
+    if (!pageMeta || pageMeta.length === 0) return;
+
+    const otherMeta = [];
+    pageMeta.forEach(tag => {
+      if (tag.meta_name.toLowerCase() === 'title') {
+        titleTag.value = tag.meta_value;
+      } else {
+        otherMeta.push({ name: tag.meta_name, content: tag.meta_value });
+      }
+    });
+
+    metaTagsRaw.value = otherMeta;
+  } catch (err) {
+    console.error("Error fetching page meta tags:", err);
+  }
+});
 </script>
 
 <template>
     <NavbarComponent />
 
-    <HeroSection smallText="OUR SERVICES" largeText="Anyone can talk about the future.<br>We engineer it."
-        ctaText="Get in Touch" ctaLink="#form-section-id" videoSrc="" heroClass="service-hero" />
+    <HeroSection 
+        smallText="OUR SERVICES" 
+        largeText="Anyone can talk about the future.<br>We engineer it."
+        ctaText="Get in Touch" 
+        ctaLink="#form-section-id" 
+        videoSrc="" 
+        heroClass="service-hero" 
+    />
 
-    <LeveraGing levHeadingClass="service-lev-heading" heading="" subHeading="We apply AI to create impactful solutions in:" />
+    <LeveraGing 
+        levHeadingClass="service-lev-heading" 
+        heading="" 
+        subHeading="We apply AI to create impactful solutions in:" 
+    />
 
     <FrankComponent
         rightPara="Every day, we apply AI and engineering to solve what matters. Building solutions that improve lives across both public and private sectors."
-        expertTag="Customer Story" expertNameRole="Become Expert<br>with Spar Nord " expertCTA="Read More"
+        expertTag="Customer Story" 
+        expertNameRole="Become Expert<br>with Spar Nord" 
+        expertCTA="Read More"
         quote="To meet increasing demands for greater data compliance, speed, and quality, Danish bank Spar Nord made a strategic decision: to build its own data platform."
-        imageSrc="Spar-Nord-Sign.png" frankTextClass="text-large-service" />
+        imageSrc="Spar-Nord-Sign.png" 
+        frankTextClass="text-large-service" 
+    />
 
     <LastingImpact :items="impactData" />
 
-    <FormComponent formTextClass="mainText-services" formParaClass="form-para-services" mainText="Unlock the power of data. Turn decisions into growth."
-    formSectionClass="form-section-services"
+    <FormComponent 
+        formTextClass="mainText-services" 
+        formParaClass="form-para-services" 
+        mainText="Unlock the power of data. Turn decisions into growth."
+        formSectionClass="form-section-services"
         mainPara="Twoday is the defining force in applied AI and advanced engineering. With 3,000 experts in data, software, and cloud engineering, we cut through complexity, remove uncertainty, and prove the value of technology.
 
         We strengthen private and public organizations across industries like energy and utilities, industrials and manufacturing, health and life sciences, and government and more.
 
-        From offices in Sweden, Denmark, Norway, Finland, and Lithuania, we combine local presence with scale that matters to deliver clarity and results that last." />
+        From offices in Sweden, Denmark, Norway, Finland, and Lithuania, we combine local presence with scale that matters to deliver clarity and results that last." 
+    />
+
     <FooterComponent />
-
-
-    <!-- 
-        <LatestNews />
-    -->
-
-
 </template>

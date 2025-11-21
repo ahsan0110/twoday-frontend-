@@ -1,5 +1,5 @@
 <template>
-    <NavbarComponent />
+
 
     <div class="update-section">
         <div class="update-container">
@@ -8,31 +8,25 @@
             <div v-if="loading" class="loading">Loading...</div>
 
             <form v-else @submit.prevent="updatePage">
-
-                <label>Title</label>
-                <input type="text" v-model="form.title" required />
-
-
+                <div >
+                    <label>Title</label>
+                    <input type="text" v-model="form.title" required />
+                </div>
                 <button type="submit" class="update-btn">Update Page</button>
             </form>
         </div>
     </div>
 
-    <FooterComponent />
 </template>
 
 <script>
 import apiClient from "../apiClient";
-import NavbarComponent from "@/components/NavbarComponent.vue";
-import FooterComponent from "@/components/FooterComponent.vue";
+
 
 export default {
     name: "EditPage",
 
-    components: {
-        NavbarComponent,
-        FooterComponent,
-    },
+
 
     data() {
         return {
@@ -114,13 +108,16 @@ label {
 
 input,
 textarea {
-    width: 100%;
-    padding: 12px;
+    width: 100%;      
     border-radius: 8px;
     border: 1px solid #ccc;
     margin-bottom: 20px;
+   
     font-size: 15px;
+    padding: 10px;     
+    box-sizing: border-box; 
 }
+
 
 .update-btn {
     width: 100%;

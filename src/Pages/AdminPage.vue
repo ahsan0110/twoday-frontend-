@@ -4,6 +4,10 @@
 
     <div class="admin-container">
       <h1 class="admin-title">Pages Listing</h1>
+      <div class="search-div">
+        <input type="text" v-model="searchQuery" placeholder="Search pages..." class="search-input" />
+      </div>
+
 
       <div v-if="loading" class="loading">Loading...</div>
 
@@ -18,9 +22,8 @@
         </thead>
 
         <tbody>
-          <tr v-for="page in pages" :key="page.id">
+          <tr v-for="page in filteredPages" :key="page.id">
             <td>{{ page.title }}</td>
-
             <td>
               <button class="edit-btn" @click="editPage(page.id)">Update</button>
             </td>
@@ -58,6 +61,7 @@ export default {
     return {
       pages: [],
       loading: true,
+      searchQuery: "",
     };
   },
   components: {
@@ -68,6 +72,18 @@ export default {
   mounted() {
     this.fetchPages();
   },
+  computed: {
+    filteredPages() {
+      if (!this.searchQuery.trim()) return this.pages;
+
+      const q = this.searchQuery.toLowerCase();
+
+      return this.pages.filter(page =>
+        page.title.toLowerCase().includes(q)
+      );
+    }
+  },
+
 
   methods: {
     async fetchPages() {
@@ -198,13 +214,17 @@ tbody td {
   font-size: 15px;
   color: #f5f5f5;
 }
+
 .loading {
   font-size: 18px;
   color: #999999;
   padding: 20px 0;
   text-align: center;
 }
-.edit-btn, .delete-btn, .tags-btn {
+
+.edit-btn,
+.delete-btn,
+.tags-btn {
   padding: 8px 14px;
   border: none;
   border-radius: 8px;
@@ -218,6 +238,7 @@ tbody td {
   background: #ff9900;
   color: #111;
 }
+
 .edit-btn:hover {
   color: #000000;
   background: #00c3ff;
@@ -227,6 +248,7 @@ tbody td {
   background-color: #000000;
   color: #ff3300;
 }
+
 .delete-btn:hover {
   background: #ff3300;
   color: #000000;
@@ -237,11 +259,35 @@ tbody td {
   color: #ff9900;
   border: 1px solid #ff9900;
 }
+
 .tags-btn:hover {
   background: #ff9900;
   color: #111;
 }
-
+.search-div{
+  display: flex;
+  justify-content: center;
+}
+.search-input {
+  width: 50%;
+  padding: 2px 18px;
+  margin-bottom: 20px;
+  border-radius: 50px;
+  border: 2px solid #000000;
+  font-size: 16px;
+  outline: none;
+  background-color: #282828;
+  transition: 0.3s ease;
+  color: #fff;
+  box-shadow: 0 0 8px #3a3a3a;
+}
+.search-input::placeholder{
+  color: #d8d8d8;
+}
+.search-input:focus {
+  border-color: #ffa600;
+  box-shadow: 0 0 8px #ff9900;
+}
 
 
 ::-webkit-scrollbar {
