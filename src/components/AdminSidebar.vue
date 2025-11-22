@@ -1,5 +1,5 @@
 <template>
-    
+
     <aside class="sidebar">
 
         <!-- Logo / Heading -->
@@ -20,10 +20,27 @@
                 <span>Meta Tags</span>
             </li>
 
+            <li @click="logout" class="logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </li>
+
         </ul>
 
     </aside>
 </template>
+
+<script>
+export default {
+    name: "AdminSidebar",
+    methods: {
+        logout() {
+            localStorage.removeItem("admin_token"); // remove admin token
+            this.$router.replace({ name: "AdminLogin" }); // redirect to login
+        }
+    }
+};
+</script>
 
 <style>
 .sidebar {
@@ -91,5 +108,15 @@
 
 .menu li.active i {
     color: #111;
+}
+.logout-btn {
+    margin-top: auto; /* push it to the bottom of the sidebar */
+    background: #ff4d4f;
+    color: #fff;
+    font-weight: 600;
+}
+
+.logout-btn:hover {
+    background: #ff1a1a;
 }
 </style>

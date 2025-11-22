@@ -1,6 +1,6 @@
 <template>
   <div class="admin-meta-container">
-    <AdminSidebar />
+    <AdminSidebar @logout="logout" />
 
     <div class="meta-admin-container">
       <h1 class="title">All Pages & Meta Tags</h1>
@@ -11,8 +11,8 @@
           type="text"
           v-model="searchQuery"
           placeholder="Search by page title"
+          @input="searchPages"
         />
-        <button @click="searchPages">Search</button>
         <button @click="cancelSearch">Cancel</button>
       </div>
 
@@ -92,6 +92,17 @@ export default {
   },
 
   mounted() {
+    // Check for admin token
+    const token = localStorage.getItem("admin_token");
+    if (!token) {
+      alert("Unauthorized! Please login as admin.");
+      this.$router.push({ name: "AdminLogin" });
+      return;
+    }
+
+    // Attach token to apiClient headers
+    apiClient.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
     this.loadRows();
   },
 
@@ -111,7 +122,12 @@ export default {
         this.currentPage = res.data.current_page;
         this.lastPage = res.data.last_page;
       } catch (err) {
-        console.error("Error loading rows:", err);
+        if (err.response && err.response.status === 403) {
+          alert("Unauthorized! Admin access only.");
+          this.$router.push({ name: "AdminLogin" });
+        } else {
+          console.error("Error loading rows:", err);
+        }
       }
     },
 
@@ -155,9 +171,17 @@ export default {
       await apiClient.delete(`/meta-tags/${row.metaId}`);
       this.loadRows(this.currentPage);
     },
+
+    // Logout admin
+    logout() {
+      localStorage.removeItem("admin_token");
+      apiClient.defaults.headers.common["Authorization"] = null;
+      this.$router.push({ name: "AdminLogin" });
+    },
   },
 };
 </script>
+
 
 <style scoped>
 
