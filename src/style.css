@@ -906,24 +906,7 @@ footer {
   color: #111;
 }
 
-.admin-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
 
-.admin-container {
-  width: 50%;
-  max-width: 1200px;
-  padding: 30px;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
-  border-top: 5px solid #ff6600;
-  border-bottom: 5px solid #ff6600;
-}
 
 .admin-title {
   font-size: 32px;

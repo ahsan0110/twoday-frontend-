@@ -9,12 +9,13 @@ import ExtraInfo from "./Pages/ExtraInfo.vue";
 import ContactPage from "./Pages/ContactPage.vue";
 
 // Admin
-import AdminLogin from "./Pages/AdminLogin.vue"; 
+import AdminLogin from "./Pages/AdminLogin.vue";
 import AdminPage from "./Pages/AdminPage.vue";
 import AddPage from "./Pages/AddPage.vue";
 import EditPage from "./Pages/EditPage.vue";
 import MetaTags from "./Pages/MetaTags.vue";
 import AdminMetaTags from "./Pages/AdminMetaTags.vue";
+import PageList from "./Pages/PageList.vue";
 
 const routes = [
   {
@@ -60,6 +61,12 @@ const routes = [
     path: "/admin",
     name: "AdminPage",
     component: AdminPage,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/admin/pages",
+    name: "PageList",
+    component: PageList, 
     meta: { requiresAuth: true },
   },
   {

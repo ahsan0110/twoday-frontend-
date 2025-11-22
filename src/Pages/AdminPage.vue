@@ -1,126 +1,104 @@
 <template>
-  <div class="admin-contaiber">
-    <div class="admin-side-bar">
-      <AdminSidebar/>
-    </div>
-    <div class="admin-section">
+  <div class="admin-container">
+    <AdminSidebar />
 
-      <div class="admin-container">
-        <h1 class="admin-title">Pages Listing</h1>
-        <div class="search-div">
-          <input type="text" v-model="searchQuery" placeholder="Search pages..." class="search-input" />
-          <button><i class="fa-solid fa-magnifying-glass"></i></button>
-          <button><i class="fa-solid fa-xmark"></i></button>
+    <div class="dashboard-section">
+      <h1 class="dashboard-title">Admin Dashboard</h1>
+
+      <div class="dashboard-cards">
+        <div class="card" @click="goToPages">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>Total Pages</span>
+          <h2>{{ totalPages }}</h2>
         </div>
 
-
-        <div v-if="loading" class="loading">Loading...</div>
-
-        <table v-else>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr v-for="page in filteredPages" :key="page.id">
-              <td>{{ page.title }}</td>
-              <td>
-                <div class="table-icons">
-                  <button class="edit-btn" @click="editPage(page.id)"><i class="fa-solid fa-pen"></i></button>
-                  <button class="delete-btn" @click="deletePage(page.id)"><i class="fa-solid fa-trash "></i></button>
-                  <button class="tags-btn" @click="goToMetaTags(page.id)"><i class="fa-solid fa-eye"></i></button>
-
-                </div>
-              </td>
-            </tr>
-          </tbody>
-
-        </table>
-        <div class="table-footer">
-          <button @click="goToAddPage" class="add-page">Add Pages</button>
+        <div class="card" @click="goToMetaTags">
+          <i class="fa-solid fa-tags"></i>
+          <span>Total Meta Tags</span>
+          <h2>{{ totalMetaTags }}</h2>
         </div>
       </div>
     </div>
   </div>
-
-
 </template>
-
 
 <script>
 import AdminSidebar from "@/components/AdminSidebar.vue";
-import apiClient from "../apiClient";
-
-
+import apiClient from "@/apiClient";
 
 export default {
-  name: "AdminPages",
-  components:{
-    AdminSidebar,
-  },
-
+  name: "AdminPage",
+  components: { AdminSidebar },
   data() {
     return {
-      pages: [],
-      loading: true,
-      searchQuery: "",
+      totalPages: 0,
+      totalMetaTags: 0,
     };
   },
-
-
   mounted() {
-    this.fetchPages();
+    this.fetchCounts();
   },
-  computed: {
-    filteredPages() {
-      if (!this.searchQuery.trim()) return this.pages;
-
-      const q = this.searchQuery.toLowerCase();
-
-      return this.pages.filter(page =>
-        page.title.toLowerCase().includes(q)
-      );
-    }
-  },
-
-
   methods: {
-    async fetchPages() {
+    async fetchCounts() {
       try {
-        const response = await apiClient.get("/pages");
-        this.pages = response.data.pages || response.data;
-      } catch (error) {
-        console.error("Failed to load pages:", error);
-      } finally {
-        this.loading = false;
+        const pagesRes = await apiClient.get("/pages");
+        this.totalPages = pagesRes.data.pages ? pagesRes.data.pages.length : pagesRes.data.length;
+
+        const metaRes = await apiClient.get("/pages-with-meta");
+        this.totalMetaTags = metaRes.data.data ? metaRes.data.data.length : 0;
+      } catch (err) {
+        console.error("Error fetching dashboard counts:", err);
       }
     },
 
-    editPage(id) {
-      this.$router.push({ name: "EditPage", params: { id } });
+    goToPages() {
+      this.$router.push({ name: "PageList" });
     },
 
-    deletePage(id) {
-      if (!confirm("Are you sure you want to delete this page?")) return;
-
-      apiClient.delete(`/pages/${id}`)
-        .then(() => {
-          this.pages = this.pages.filter(p => p.id !== id);
-        })
-        .catch(err => console.error("Delete failed", err));
+    goToMetaTags() {
+      this.$router.push({ name: "AdminMetaTags" });
     },
-
-    goToMetaTags(id) {
-      this.$router.push({ name: "MetaTags", params: { pageId: id } });
-    },
-
-    goToAddPage() {
-      this.$router.push({ name: "AddPage" });
-    }
-  }
-
+  },
 };
 </script>
+
+<style scoped>
+.dashboard-section {
+  margin-left: 260px;
+  padding: 30px;
+}
+.dashboard-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ff6600;
+  margin-bottom: 20px;
+}
+.dashboard-cards {
+  display: flex;
+  gap: 20px;
+}
+.card {
+  flex: 1;
+  background: #222;
+  color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.card:hover {
+  background: #ff6600;
+  color: #111;
+}
+.card i {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+.card h2 {
+  font-size: 28px;
+  margin-top: 5px;
+}
+</style>
