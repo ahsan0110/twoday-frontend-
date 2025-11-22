@@ -1139,7 +1139,11 @@ tbody td {
     padding: 8px;
     border-radius: 5px;
 }
-
+.admin-contaiber{
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
 @media (max-width: 1230px) {
   .video-text-large {
     font-size: 6.5rem;

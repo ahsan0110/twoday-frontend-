@@ -32,7 +32,6 @@
                 </tr>
             </tbody>
         </table>
-
         <!-- EDIT FORM -->
         <div v-if="editingTag" class="form-box">
             <input v-model="editingTag.meta_name" />

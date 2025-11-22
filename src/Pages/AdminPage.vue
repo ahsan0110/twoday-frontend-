@@ -1,57 +1,66 @@
 <template>
-  <NavbarComponent />
-  <div class="admin-section">
+  <div class="admin-contaiber">
+    <div class="admin-side-bar">
+      <AdminSidebar/>
+    </div>
+    <div class="admin-section">
 
-    <div class="admin-container">
-      <h1 class="admin-title">Pages Listing</h1>
-      <div class="search-div">
-        <input type="text" v-model="searchQuery" placeholder="Search pages..." class="search-input" />
-        <button><i class="fa-solid fa-magnifying-glass"></i></button>
-        <button><i class="fa-solid fa-xmark"></i></button>
-      </div>
+      <div class="admin-container">
+        <h1 class="admin-title">Pages Listing</h1>
+        <div class="search-div">
+          <input type="text" v-model="searchQuery" placeholder="Search pages..." class="search-input" />
+          <button><i class="fa-solid fa-magnifying-glass"></i></button>
+          <button><i class="fa-solid fa-xmark"></i></button>
+        </div>
 
 
-      <div v-if="loading" class="loading">Loading...</div>
+        <div v-if="loading" class="loading">Loading...</div>
 
-      <table v-else>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
+        <table v-else>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          <tr v-for="page in filteredPages" :key="page.id">
-            <td>{{ page.title }}</td>
-            <td>
-              <div class="table-icons">
-                <button class="edit-btn" @click="editPage(page.id)"><i class="fa-solid fa-pen"></i></button>
-                <button class="delete-btn" @click="deletePage(page.id)"><i class="fa-solid fa-trash "></i></button>
-                <button class="tags-btn" @click="goToMetaTags(page.id)"><i class="fa-solid fa-eye"></i></button>
+          <tbody>
+            <tr v-for="page in filteredPages" :key="page.id">
+              <td>{{ page.title }}</td>
+              <td>
+                <div class="table-icons">
+                  <button class="edit-btn" @click="editPage(page.id)"><i class="fa-solid fa-pen"></i></button>
+                  <button class="delete-btn" @click="deletePage(page.id)"><i class="fa-solid fa-trash "></i></button>
+                  <button class="tags-btn" @click="goToMetaTags(page.id)"><i class="fa-solid fa-eye"></i></button>
 
-              </div>
-            </td>
-          </tr>
-        </tbody>
+                </div>
+              </td>
+            </tr>
+          </tbody>
 
-      </table>
-      <div class="table-footer">
-        <button @click="goToAddPage" class="add-page">Add Pages</button>
+        </table>
+        <div class="table-footer">
+          <button @click="goToAddPage" class="add-page">Add Pages</button>
+        </div>
       </div>
     </div>
   </div>
 
-  
+
 </template>
 
 
 <script>
+import AdminSidebar from "@/components/AdminSidebar.vue";
 import apiClient from "../apiClient";
+
 
 
 export default {
   name: "AdminPages",
+  components:{
+    AdminSidebar,
+  },
 
   data() {
     return {
@@ -115,4 +124,3 @@ export default {
 
 };
 </script>
-

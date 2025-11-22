@@ -10,6 +10,7 @@ import AdminPage from "./Pages/AdminPage.vue";
 import AddPage from "./Pages/AddPage.vue";
 import MetaTags from "./Pages/MetaTags.vue";
 import EditPage from "./Pages/EditPage.vue";
+import AdminMetaTags from "./Pages/AdminMetaTags.vue";
 
 
 const routes = [
@@ -63,6 +64,11 @@ const routes = [
     name: "MetaTags",
     component: MetaTags,
   },
+  {
+  path: "/admin/pages/meta-tags",
+  name: "AdminMetaTags",
+  component: AdminMetaTags,
+},
 ];
 
 const router = createRouter({
