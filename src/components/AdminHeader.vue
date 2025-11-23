@@ -3,7 +3,7 @@
         <h1 class="header-title">Admin Dashboard</h1>
 
         <div class="head-icons">
-            <i class="fa-solid fa-user-tie"></i>
+            <i class="fa-solid fa-user-tie" @click="admin" ></i>
             <i class="fa-solid fa-download"></i>
             <i class="fa-solid fa-hammer"></i>
         </div>
@@ -12,7 +12,13 @@
 </template>
 
 <script>
-
+    export default{
+        methods:{
+            admin(){
+                this.$router.push({name:'AdminPage'})
+            }
+        },
+    }
 </script>
 
 <style>

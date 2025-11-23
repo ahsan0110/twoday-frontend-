@@ -77,7 +77,7 @@ export default {
 
 <style scoped>
 .dashboard-section {
-  margin-left: 260px;
+  margin-left: 280px;
   padding: 30px;
 }
 
@@ -121,7 +121,7 @@ export default {
 .welcome-box {
   margin-top: 50px;
   margin-bottom: 50px;
-  margin-left: 260px;
+  margin-left: 280px;
   padding: 20px 35px;
   background: #ffffff;
 }

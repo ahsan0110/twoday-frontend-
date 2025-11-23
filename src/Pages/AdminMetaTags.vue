@@ -194,8 +194,9 @@ export default {
 
 
 <style scoped>
+
 .meta-admin-container {
-  margin-left: 260px;
+  margin-left: 280px;
   padding: 30px;
 }
 
