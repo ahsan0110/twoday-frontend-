@@ -102,7 +102,7 @@ export default {
 }
 
 .card:hover {
-  background: #ff6600;
+  background: #000000;
 
 }
 
@@ -118,22 +118,22 @@ export default {
 }
 
 
-/* WELCOME BOX BELOW THE HEADER */
 .welcome-box {
+  margin-top: 50px;
+  margin-bottom: 50px;
   margin-left: 260px;
   padding: 20px 35px;
-  border-bottom: 1px solid #eee;
-  background: #fafafa;
+  background: #ffffff;
 }
 
 .welcome-box h2 {
-  font-size: 24px;
-  margin: 0 0 5px;
+  font-size: 32px;
+  margin: 0 0 20px;
   color: #333;
 }
 
 .welcome-box p {
-  font-size: 14px;
+  font-size: 20px;
   color: #666;
 }
 
