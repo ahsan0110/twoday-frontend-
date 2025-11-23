@@ -190,19 +190,25 @@ export default {
 
 .search-bar {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-bar input {
-  flex: 1;
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #555;
-  background: #333;
+  width: 50%;
+  padding: 2px 18px;
+  border-radius: 50px;
+  border: 2px solid #000000;
+  font-size: 16px;
+  outline: none;
+  background-color: #282828;
+  transition: 0.3s ease;
   color: #fff;
+  box-shadow: 0 0 8px #3a3a3a;
 }
-
+.search-bar input::placeholder {
+  color: #d8d8d8;
+}
 .search-bar button {
   padding: 8px 14px;
   border: none;

@@ -6,7 +6,6 @@
     <div class="admin-section">
       <h1 class="admin-title">Pages Listing</h1>
 
-      <!-- SEARCH (leave input, but remove logic for now) -->
       <div class="search-div">
         <input type="text" v-model="searchQuery" placeholder="Search pages..." class="search-input" />
         <button @click="searchPages"><i class="fa-solid fa-magnifying-glass"></i></button>
