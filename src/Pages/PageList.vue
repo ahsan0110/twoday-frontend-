@@ -7,10 +7,17 @@
       <h1 class="admin-title">Pages Listing</h1>
 
       <div class="search-div">
-        <input type="text" v-model="searchQuery" placeholder="Search pages..." class="search-input" />
-        <button @click="searchPages"><i class="fa-solid fa-magnifying-glass"></i></button>
-        <button @click="cancelSearch"><i class="fa-solid fa-xmark"></i></button>
+        <input type="text" v-model="searchQuery" placeholder="Search by page title..." class="search-input" />
+
+        <button @click="searchPages" class="search-btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button @click="cancelSearch" class="search-cancel-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
+
 
       <div v-if="loading" class="loading">Loading...</div>
 
@@ -107,10 +114,18 @@ export default {
     async fetchPages(page = 1) {
       this.loading = true;
       try {
-        const res = await apiClient.get(`/pages?page=${page}&per_page=${this.perPage}`);
+        //const res = await apiClient.get(`/pages?page=${page}&per_page=${this.perPage}`);
+        const res = await apiClient.get(`/pages`, {
+          params: {
+            page: page,
+            per_page: this.perPage,
+            search: this.searchQuery
+          }
+        });
         this.pages = res.data.data;
         this.currentPage = res.data.current_page;
         this.lastPage = res.data.last_page;
+
       } catch (err) {
         console.error(err);
       } finally {
@@ -176,8 +191,9 @@ export default {
       this.fetchPages(page);
     },
 
-    // placeholder for future API search
-    searchPages() {},
+    async searchPages() {
+      this.fetchPages(1); // go to first page with search
+    },
     cancelSearch() {
       this.searchQuery = "";
       this.fetchPages(1);
@@ -254,6 +270,76 @@ export default {
   cursor: pointer;
 }
 
+.search-div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+
+
+.search-btn {
+  background: #ff6600;
+  color: #111;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.search-btn i {
+  font-size: 18px;
+}
+
+.search-btn:hover {
+  background: #ff7f2a;
+}
+
+
+.search-cancel-btn {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.search-cancel-btn i {
+  font-size: 18px;
+}
+
+.search-cancel-btn:hover {
+  background: #555;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 600px) {
+  .search-div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .search-btn,
+  .search-cancel-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+input{
+  margin-bottom: auto;
+}
 .pagination {
   display: flex;
   justify-content: center;
