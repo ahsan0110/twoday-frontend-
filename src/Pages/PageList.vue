@@ -6,7 +6,7 @@
     <div class="admin-section">
       <h1 class="admin-title">Pages Listing</h1>
 
-      <!-- SEARCH -->
+      <!-- SEARCH (leave input, but remove logic for now) -->
       <div class="search-div">
         <input type="text" v-model="searchQuery" placeholder="Search pages..." class="search-input" />
         <button @click="searchPages"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -26,7 +26,7 @@
           </thead>
 
           <tbody>
-            <tr v-for="page in filteredPages" :key="page.id">
+            <tr v-for="page in pages" :key="page.id">
               <td>{{ page.title }}</td>
               <td>
                 <div class="table-icons">
@@ -44,6 +44,13 @@
             </tr>
           </tbody>
         </table>
+
+        <!-- API pagination -->
+        <div class="pagination">
+          <button @click="goToPage(currentPage - 1)" :disabled="currentPage === 1">Prev</button>
+          <span>Page {{ currentPage }} of {{ lastPage }}</span>
+          <button @click="goToPage(currentPage + 1)" :disabled="currentPage === lastPage">Next</button>
+        </div>
       </div>
 
       <!-- FOOTER -->
@@ -56,7 +63,6 @@
   <!-- ADD / EDIT MODAL -->
   <div v-if="showModal" class="modal-overlay">
     <div class="modal-box">
-
       <h2>{{ isEditing ? "Edit Page" : "Add New Page" }}</h2>
 
       <input v-model="formData.title" placeholder="Enter page title" class="modal-input" />
@@ -67,7 +73,6 @@
         </button>
         <button class="cancel-btn" @click="closeModal">Cancel</button>
       </div>
-
     </div>
   </div>
 </template>
@@ -85,10 +90,13 @@ export default {
     return {
       pages: [],
       loading: true,
-      searchQuery: "",
+      searchQuery: "", // leave input for future API search
       showModal: false,
       isEditing: false,
-      formData: { id: null, title: "" }
+      formData: { id: null, title: "" },
+      currentPage: 1,
+      lastPage: 1,
+      perPage: 5,
     };
   },
 
@@ -96,19 +104,14 @@ export default {
     this.fetchPages();
   },
 
-  computed: {
-    filteredPages() {
-      if (!this.searchQuery.trim()) return this.pages;
-      const q = this.searchQuery.toLowerCase();
-      return this.pages.filter(p => p.title.toLowerCase().includes(q));
-    }
-  },
-
   methods: {
-    async fetchPages() {
+    async fetchPages(page = 1) {
+      this.loading = true;
       try {
-        const res = await apiClient.get("/pages");
-        this.pages = res.data.pages || res.data;
+        const res = await apiClient.get(`/pages?page=${page}&per_page=${this.perPage}`);
+        this.pages = res.data.data;
+        this.currentPage = res.data.current_page;
+        this.lastPage = res.data.last_page;
       } catch (err) {
         console.error(err);
       } finally {
@@ -136,9 +139,9 @@ export default {
       if (!this.formData.title) return alert("Title required");
 
       try {
-        const res = await apiClient.post("/pages", this.formData);
-        this.pages.push(res.data.page || res.data);
+        await apiClient.post("/pages", this.formData);
         this.closeModal();
+        this.fetchPages(this.currentPage); // refresh current page
       } catch (err) {
         console.error(err);
       }
@@ -147,9 +150,8 @@ export default {
     async updatePage() {
       try {
         await apiClient.put(`/pages/${this.formData.id}`, this.formData);
-        const index = this.pages.findIndex(p => p.id === this.formData.id);
-        this.pages[index].title = this.formData.title;
         this.closeModal();
+        this.fetchPages(this.currentPage); // refresh current page
       } catch (err) {
         console.error(err);
       }
@@ -160,7 +162,7 @@ export default {
 
       try {
         await apiClient.delete(`/pages/${id}`);
-        this.pages = this.pages.filter(p => p.id !== id);
+        this.fetchPages(this.currentPage); // refresh current page
       } catch (err) {
         console.error(err);
       }
@@ -170,9 +172,18 @@ export default {
       this.$router.push({ name: "MetaTags", params: { pageId: id } });
     },
 
-    searchPages() { },
-    cancelSearch() { this.searchQuery = ""; }
-  }
+    goToPage(page) {
+      if (page < 1 || page > this.lastPage) return;
+      this.fetchPages(page);
+    },
+
+    // placeholder for future API search
+    searchPages() {},
+    cancelSearch() {
+      this.searchQuery = "";
+      this.fetchPages(1);
+    },
+  },
 };
 </script>
 
@@ -242,5 +253,28 @@ export default {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ff6600;
+  color: #111;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.pagination button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
 }
 </style>
