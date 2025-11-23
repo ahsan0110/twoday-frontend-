@@ -1,5 +1,5 @@
 <template>
-  <AdminHeader/>
+  <AdminHeader />
   <div class="admin-meta-container">
     <AdminSidebar @logout="logout" />
 
@@ -9,7 +9,7 @@
       <!-- Search Bar -->
       <div class="search-bar">
         <input type="text" v-model="searchQuery" placeholder="Search by page title" @input="searchPages" />
-        <button @click="cancelSearch">Cancel</button>
+        <button @click="cancelSearch"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
       <!-- Pages Table -->
@@ -19,6 +19,7 @@
             <th>Page Name</th>
             <th>Meta Name</th>
             <th>Meta Value</th>
+            <th>Status</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -27,13 +28,27 @@
             <td>{{ row.pageTitle }}</td>
             <td>{{ row.metaName || '-' }}</td>
             <td>{{ row.metaValue || '-' }}</td>
+            <td class="status-col">
+              <span v-if="row.metaId">
+                <i class="fa-solid fa-circle-check active-icon"></i> Active
+              </span>
+              <span v-else>
+                <i class="fa-solid fa-circle-xmark inactive-icon"></i> Not Active
+              </span>
+            </td>
             <td>
-              <button class="edit-btn" @click="editTag(row)" :disabled="!row.metaId">
-                <i class="fa-solid fa-pen"></i>
-              </button>
-              <button class="delete-btn" @click="deleteTag(row)" :disabled="!row.metaId">
-                <i class="fa-solid fa-trash"></i>
-              </button>
+              <div class="action-btns">
+
+                <button class="edit-btn" @click="editTag(row)" :disabled="!row.metaId">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+                <button class="delete-btn" @click="deleteTag(row)" :disabled="!row.metaId">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+                <button class="tags-btn" @click="goToMetaTags">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+              </div>
             </td>
           </tr>
         </tbody>
@@ -170,6 +185,9 @@ export default {
       apiClient.defaults.headers.common["Authorization"] = null;
       this.$router.push({ name: "AdminLogin" });
     },
+    goToMetaTags() {
+      this.$router.push({ name: "MetaTags" });
+    },
   },
 };
 </script>
@@ -192,6 +210,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .search-bar input {
@@ -206,17 +225,24 @@ export default {
   color: #fff;
   box-shadow: 0 0 8px #3a3a3a;
 }
+
 .search-bar input::placeholder {
   color: #d8d8d8;
 }
+
 .search-bar button {
-  padding: 8px 14px;
+  padding: 14px 18px;
+  margin-left: 10px;
   border: none;
-  border-radius: 6px;
+  border-radius: 60%;
   cursor: pointer;
   font-weight: bold;
   background: #ff6600;
   color: #111;
+}
+
+.search-bar button i {
+  font-size: 18px;
 }
 
 table {
@@ -316,5 +342,30 @@ td {
 .edit-buttons button:last-child {
   background-color: #555;
   color: #fff;
+}
+
+.action-btns {
+  display: flex;
+  gap: 5px;
+}
+.status-col {
+  font-weight: bold;
+}
+
+.active-icon {
+  color: #00ff66;
+  margin-right: 6px;
+  font-size: 18px;
+}
+
+.inactive-icon {
+  color: #ff3333;
+  margin-right: 6px;
+  font-size: 18px;
+}
+
+
+input {
+  margin-bottom: auto;
 }
 </style>
