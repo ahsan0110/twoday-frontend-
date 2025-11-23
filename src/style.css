@@ -1053,11 +1053,17 @@ tbody td {
 ::-webkit-scrollbar-thumb:hover {
   background: #555555;
 }
+    
+.meta-main-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
 
 .meta-container {
-    width: 90%;
-    max-width: 1000px;
-    margin: 40px auto;
+    margin-left: 280px;
+    width: 50%;
     padding: 25px;
     background: #111;
     color: #fff;

@@ -1,55 +1,67 @@
 <template>
-    <div class="meta-container">
-        <h1>Meta Tags</h1>
+    <AdminSidebar />
+    <AdminHeader />
+    <div class="meta-main-section">
 
-        <button class="add-btn" @click="showAddForm = true">+ Add Meta Tag</button>
+        <div class="meta-container">
+            <h1>Meta Tags</h1>
 
-        <!-- ADD FORM -->
-        <div v-if="showAddForm" class="form-box">
-            <input v-model="newTag.meta_name" placeholder="Meta Name" />
-            <input v-model="newTag.meta_value" placeholder="Meta Value" />
-            <button class="save-btn" @click="addMetaTag">Save</button>
-            <button class="cancel-btn" @click="showAddForm = false">Cancel</button>
+            <button class="add-btn" @click="showAddForm = true">+ Add Meta Tag</button>
+
+            <!-- ADD FORM -->
+            <div v-if="showAddForm" class="form-box">
+                <input v-model="newTag.meta_name" placeholder="Meta Name" />
+                <input v-model="newTag.meta_value" placeholder="Meta Value" />
+                <button class="save-btn" @click="addMetaTag">Save</button>
+                <button class="cancel-btn" @click="showAddForm = false">Cancel</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Content</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr v-for="tag in tags" :key="tag.id">
+                        <td>{{ tag.meta_name }}</td>
+                        <td>{{ tag.meta_value }}</td>
+                        <td>
+                            <button class="edit-btn" @click="editTag(tag)">Edit</button>
+                            <button class="delete-btn" @click="deleteTag(tag.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- EDIT FORM -->
+            <div v-if="editingTag" class="form-box">
+                <input v-model="editingTag.meta_name" />
+                <input v-model="editingTag.meta_value" />
+                <button class="save-btn" @click="updateTag">Update</button>
+                <button class="cancel-btn" @click="editingTag = null">Cancel</button>
+            </div>
+
+            <button class="add-btn back-btn" @click="goBack">Back To Pages List</button>
+
         </div>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Content</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr v-for="tag in tags" :key="tag.id">
-                    <td>{{ tag.meta_name }}</td>
-                    <td>{{ tag.meta_value }}</td>
-                    <td>
-                        <button class="edit-btn" @click="editTag(tag)">Edit</button>
-                        <button class="delete-btn" @click="deleteTag(tag.id)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <!-- EDIT FORM -->
-        <div v-if="editingTag" class="form-box">
-            <input v-model="editingTag.meta_name" />
-            <input v-model="editingTag.meta_value" />
-            <button class="save-btn" @click="updateTag">Update</button>
-            <button class="cancel-btn" @click="editingTag = null">Cancel</button>
-        </div>
-
-        <button class="add-btn back-btn" @click="goBack">Back To Pages List</button>
-
     </div>
+
 </template>
 
 <script>
+import AdminHeader from "@/components/AdminHeader.vue";
 import apiClient from "../apiClient";
+import AdminSidebar from "@/components/AdminSidebar.vue";
 
 export default {
     name: "MetaTags",
+    components: {
+        AdminHeader,
+        AdminSidebar,
+    },
 
     data() {
         return {
@@ -59,6 +71,7 @@ export default {
             editingTag: null,
         };
     },
+
 
     mounted() {
         this.newTag.page_id = this.$route.params.pageId;
@@ -97,9 +110,8 @@ export default {
         },
 
         goBack() {
-            this.$router.push({ name: "admin" });
+            this.$router.push({ name: "PageList" });
         }
     },
 };
 </script>
-
