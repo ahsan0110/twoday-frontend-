@@ -50,11 +50,15 @@ export default {
   methods: {
     async fetchCounts() {
       try {
-        const pagesRes = await apiClient.get("/pages");
-        this.totalPages = pagesRes.data.pages ? pagesRes.data.pages.length : pagesRes.data.length;
+        const pagesRes = await apiClient.get("/pages", {
+          params: { per_page: 1 } // smallest load
+        });
+        this.totalPages = pagesRes.data.total;
 
-        const metaRes = await apiClient.get("/pages-with-meta");
-        this.totalMetaTags = metaRes.data.data ? metaRes.data.data.length : 0;
+        const metaRes = await apiClient.get("/pages-with-meta", {
+          params: { per_page: 1 }
+        });
+        this.totalMetaTags = metaRes.data.total;
       } catch (err) {
         console.error("Error fetching dashboard counts:", err);
       }
@@ -110,6 +114,7 @@ export default {
 .card h2 {
   font-size: 28px;
   margin-top: 5px;
+  color: #01ff01;
 }
 
 
