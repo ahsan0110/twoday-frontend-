@@ -186,7 +186,7 @@ export default {
       this.$router.push({ name: "AdminLogin" });
     },
     goToMetaTags() {
-      this.$router.push({ name: "MetaTags" });
+      this.$router.push({ name: "PageList" });
     },
   },
 };
