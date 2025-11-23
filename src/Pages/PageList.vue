@@ -1,23 +1,21 @@
 <template>
-  <div class="page-list-container">
-    <AdminSidebar />
+  <AdminSidebar />
+  <AdminHeader />
 
+  <div class="page-list-container">
     <div class="admin-section">
       <h1 class="admin-title">Pages Listing</h1>
 
+      <!-- SEARCH -->
       <div class="search-div">
-        <input
-          type="text"
-          v-model="searchQuery"
-          placeholder="Search pages..."
-          class="search-input"
-        />
+        <input type="text" v-model="searchQuery" placeholder="Search pages..." class="search-input" />
         <button @click="searchPages"><i class="fa-solid fa-magnifying-glass"></i></button>
         <button @click="cancelSearch"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
       <div v-if="loading" class="loading">Loading...</div>
 
+      <!-- TABLE -->
       <div class="table-wrapper" v-else>
         <table>
           <thead>
@@ -32,7 +30,7 @@
               <td>{{ page.title }}</td>
               <td>
                 <div class="table-icons">
-                  <button class="edit-btn" @click="editPage(page.id)">
+                  <button class="edit-btn" @click="openEditModal(page)">
                     <i class="fa-solid fa-pen"></i>
                   </button>
                   <button class="delete-btn" @click="deletePage(page.id)">
@@ -48,71 +46,132 @@
         </table>
       </div>
 
+      <!-- FOOTER -->
       <div class="table-footer">
-        <button @click="goToAddPage" class="add-page">Add Pages</button>
+        <button @click="openAddModal" class="add-page">Add Page</button>
       </div>
+    </div>
+  </div>
+
+  <!-- ADD / EDIT MODAL -->
+  <div v-if="showModal" class="modal-overlay">
+    <div class="modal-box">
+
+      <h2>{{ isEditing ? "Edit Page" : "Add New Page" }}</h2>
+
+      <input v-model="formData.title" placeholder="Enter page title" class="modal-input" />
+
+      <div class="modal-actions">
+        <button class="save-btn" @click="isEditing ? updatePage() : createPage()">
+          {{ isEditing ? "Update" : "Create" }}
+        </button>
+        <button class="cancel-btn" @click="closeModal">Cancel</button>
+      </div>
+
     </div>
   </div>
 </template>
 
 <script>
 import AdminSidebar from "@/components/AdminSidebar.vue";
+import AdminHeader from "@/components/AdminHeader.vue";
 import apiClient from "@/apiClient";
 
 export default {
   name: "PageList",
-  components: { AdminSidebar },
+  components: { AdminSidebar, AdminHeader },
+
   data() {
     return {
       pages: [],
       loading: true,
       searchQuery: "",
+      showModal: false,
+      isEditing: false,
+      formData: { id: null, title: "" }
     };
   },
+
   mounted() {
     this.fetchPages();
   },
+
   computed: {
     filteredPages() {
       if (!this.searchQuery.trim()) return this.pages;
       const q = this.searchQuery.toLowerCase();
-      return this.pages.filter(page => page.title.toLowerCase().includes(q));
+      return this.pages.filter(p => p.title.toLowerCase().includes(q));
     }
   },
+
   methods: {
     async fetchPages() {
       try {
-        const response = await apiClient.get("/pages");
-        this.pages = response.data.pages || response.data;
-      } catch (error) {
-        console.error("Failed to load pages:", error);
+        const res = await apiClient.get("/pages");
+        this.pages = res.data.pages || res.data;
+      } catch (err) {
+        console.error(err);
       } finally {
         this.loading = false;
       }
     },
-    editPage(id) {
-      this.$router.push({ name: "EditPage", params: { id } });
+
+    openAddModal() {
+      this.isEditing = false;
+      this.formData = { id: null, title: "" };
+      this.showModal = true;
     },
-    deletePage(id) {
-      if (!confirm("Are you sure you want to delete this page?")) return;
-      apiClient.delete(`/pages/${id}`)
-        .then(() => {
-          this.pages = this.pages.filter(p => p.id !== id);
-        })
-        .catch(err => console.error("Delete failed", err));
+
+    openEditModal(page) {
+      this.isEditing = true;
+      this.formData = { id: page.id, title: page.title };
+      this.showModal = true;
     },
+
+    closeModal() {
+      this.showModal = false;
+    },
+
+    async createPage() {
+      if (!this.formData.title) return alert("Title required");
+
+      try {
+        const res = await apiClient.post("/pages", this.formData);
+        this.pages.push(res.data.page || res.data);
+        this.closeModal();
+      } catch (err) {
+        console.error(err);
+      }
+    },
+
+    async updatePage() {
+      try {
+        await apiClient.put(`/pages/${this.formData.id}`, this.formData);
+        const index = this.pages.findIndex(p => p.id === this.formData.id);
+        this.pages[index].title = this.formData.title;
+        this.closeModal();
+      } catch (err) {
+        console.error(err);
+      }
+    },
+
+    async deletePage(id) {
+      if (!confirm("Delete page?")) return;
+
+      try {
+        await apiClient.delete(`/pages/${id}`);
+        this.pages = this.pages.filter(p => p.id !== id);
+      } catch (err) {
+        console.error(err);
+      }
+    },
+
     goToMetaTags(id) {
       this.$router.push({ name: "MetaTags", params: { pageId: id } });
     },
-    goToAddPage() {
-      this.$router.push({ name: "AddPage" });
-    },
-    searchPages() {
-      // no extra logic needed as filteredPages is reactive
-    },
-    cancelSearch() {
-      this.searchQuery = "";
-    }
+
+    searchPages() { },
+    cancelSearch() { this.searchQuery = ""; }
   }
 };
 </script>
@@ -120,100 +179,68 @@ export default {
 <style scoped>
 .page-list-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Sidebar offset */
 .admin-section {
   margin-left: 280px;
   padding: 20px;
-  width: 100%;
+  width: 50%;
   box-sizing: border-box;
 }
 
-.admin-title {
-  font-size: 28px;
-  color: #ff6600;
-  margin-bottom: 20px;
-}
-
-.search-div {
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
 }
 
-.search-input {
-  flex: 1;
-  min-width: 180px;
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-/* Table scroll on small screens */
-.table-wrapper {
-  overflow-x: auto;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
+.modal-box {
   background: #222;
-  color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
 }
 
-th, td {
-  padding: 12px;
-  border-bottom: 1px solid #333;
-  text-align: left;
+.modal-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background: #333;
+  color: white;
 }
 
-.table-icons button {
-  margin-right: 6px;
-  padding: 6px 12px;
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.save-btn {
+  background: #ff6600;
+  padding: 10px 15px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
 }
 
-.edit-btn { background: #ffaa00; color: #111; }
-.delete-btn { background: #ff3300; color: #fff; }
-.tags-btn { background: #00aaff; color: #fff; }
-
-.table-footer {
-  margin-top: 20px;
-}
-
-.add-page {
-  padding: 10px 20px;
+.cancel-btn {
+  background: #444;
+  padding: 10px 15px;
   border: none;
-  border-radius: 8px;
-  background: #ff6600;
-  color: #111;
+  border-radius: 6px;
   cursor: pointer;
-  font-weight: bold;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .admin-section {
-    margin-left: 0;
-    padding: 10px;
-  }
-
-  .search-div {
-    flex-direction: column;
-  }
-
-  .table-icons button {
-    margin-bottom: 6px;
-  }
-
-  table th, table td {
-    padding: 8px;
-  }
 }
 </style>

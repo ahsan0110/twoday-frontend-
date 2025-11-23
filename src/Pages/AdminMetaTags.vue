@@ -1,4 +1,5 @@
 <template>
+  <AdminHeader/>
   <div class="admin-meta-container">
     <AdminSidebar @logout="logout" />
 
@@ -7,12 +8,7 @@
 
       <!-- Search Bar -->
       <div class="search-bar">
-        <input
-          type="text"
-          v-model="searchQuery"
-          placeholder="Search by page title"
-          @input="searchPages"
-        />
+        <input type="text" v-model="searchQuery" placeholder="Search by page title" @input="searchPages" />
         <button @click="cancelSearch">Cancel</button>
       </div>
 
@@ -32,18 +28,10 @@
             <td>{{ row.metaName || '-' }}</td>
             <td>{{ row.metaValue || '-' }}</td>
             <td>
-              <button
-                class="edit-btn"
-                @click="editTag(row)"
-                :disabled="!row.metaId"
-              >
+              <button class="edit-btn" @click="editTag(row)" :disabled="!row.metaId">
                 <i class="fa-solid fa-pen"></i>
               </button>
-              <button
-                class="delete-btn"
-                @click="deleteTag(row)"
-                :disabled="!row.metaId"
-              >
+              <button class="delete-btn" @click="deleteTag(row)" :disabled="!row.metaId">
                 <i class="fa-solid fa-trash"></i>
               </button>
             </td>
@@ -74,11 +62,15 @@
 
 <script>
 import apiClient from "@/apiClient";
+import AdminHeader from "@/components/AdminHeader.vue";
 import AdminSidebar from "@/components/AdminSidebar.vue";
 
 export default {
   name: "PagesMetaCombined",
-  components: { AdminSidebar },
+  components: {
+    AdminSidebar,
+    AdminHeader,
+  },
 
   data() {
     return {
@@ -184,22 +176,24 @@ export default {
 
 
 <style scoped>
-
 .meta-admin-container {
   margin-left: 260px;
   padding: 30px;
 }
+
 .title {
   font-size: 32px;
   margin-bottom: 20px;
   color: #ff6600;
   font-weight: 700;
 }
+
 .search-bar {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
 }
+
 .search-bar input {
   flex: 1;
   padding: 8px;
@@ -208,6 +202,7 @@ export default {
   background: #333;
   color: #fff;
 }
+
 .search-bar button {
   padding: 8px 14px;
   border: none;
@@ -217,6 +212,7 @@ export default {
   background: #ff6600;
   color: #111;
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -225,15 +221,18 @@ table {
   border-radius: 14px;
   overflow: hidden;
 }
+
 thead {
   background: #000;
 }
+
 th,
 td {
   padding: 14px;
   border-bottom: 1px solid #333;
   text-align: left;
 }
+
 .edit-btn {
   background-color: #ffaa00;
   color: #111;
@@ -243,6 +242,7 @@ td {
   padding: 6px 12px;
   cursor: pointer;
 }
+
 .delete-btn {
   background-color: #ff3300;
   color: #fff;
@@ -251,6 +251,7 @@ td {
   padding: 6px 12px;
   cursor: pointer;
 }
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -258,6 +259,7 @@ td {
   margin-top: 20px;
   gap: 20px;
 }
+
 .pagination button {
   padding: 8px 14px;
   border-radius: 8px;
@@ -267,10 +269,12 @@ td {
   cursor: pointer;
   font-weight: bold;
 }
+
 .pagination button:disabled {
   background-color: #555;
   cursor: not-allowed;
 }
+
 .edit-form {
   margin-top: 20px;
   background: #222;
@@ -279,6 +283,7 @@ td {
   width: 300px;
   color: #fff;
 }
+
 .edit-form input {
   width: 100%;
   margin-bottom: 10px;
@@ -288,6 +293,7 @@ td {
   background: #333;
   color: #fff;
 }
+
 .edit-buttons button {
   margin-right: 10px;
   padding: 6px 12px;
@@ -295,10 +301,12 @@ td {
   border-radius: 6px;
   cursor: pointer;
 }
+
 .edit-buttons button:first-child {
   background-color: #ffaa00;
   color: #111;
 }
+
 .edit-buttons button:last-child {
   background-color: #555;
   color: #fff;

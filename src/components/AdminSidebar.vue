@@ -58,7 +58,6 @@ export default {
     position: fixed;
     left: 0;
     top: 0;
-    /* removed justify-content: space-between */
 }
 
 .sidebar-header {
