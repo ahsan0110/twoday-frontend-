@@ -26,14 +26,20 @@
         <table>
           <thead>
             <tr>
+              <th>Sr No.</th>
               <th>Title</th>
+              <th>Description</th>
               <th>Actions</th>
             </tr>
           </thead>
 
           <tbody>
-            <tr v-for="page in pages" :key="page.id">
-              <td>{{ page.title }}</td>
+            <tr v-for="(page, index) in pages" :key="page.id">
+
+              <td>{{ '0' + ((index) + 1) + "." }}</td>
+              <td>{{ page.pageTitle }}</td>
+              <td>{{ page.metaValue || "No Meta" }}</td>
+
               <td>
                 <div class="table-icons">
                   <button class="edit-btn" @click="openEditModal(page)">
@@ -115,7 +121,7 @@ export default {
       this.loading = true;
       try {
         //const res = await apiClient.get(`/pages?page=${page}&per_page=${this.perPage}`);
-        const res = await apiClient.get(`/pages`, {
+        const res = await apiClient.get(`/pages-with-meta`, {
           params: {
             page: page,
             per_page: this.perPage,
@@ -206,13 +212,11 @@ export default {
 .page-list-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .admin-section {
   margin-left: 280px;
   padding: 20px;
-  width: 50%;
   box-sizing: border-box;
 }
 
@@ -337,9 +341,11 @@ export default {
     text-align: center;
   }
 }
-input{
+
+input {
   margin-bottom: auto;
 }
+
 .pagination {
   display: flex;
   justify-content: center;
